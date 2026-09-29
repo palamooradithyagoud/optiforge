@@ -1,0 +1,60 @@
+data:
+  raw_path: "data/raw/cse_batch500_semesters_1_2_3_summary.csv"
+  processed_dir: "data/processed"
+  target_column: "next_semester_sgpa"
+  train_students_count: 300
+  val_students_count: 100
+  test_students_count: 100
+  random_seed: 42
+
+features:
+  historical_performance:
+    - "previous_sgpa"
+    - "previous_cgpa"
+    - "sgpa_change"
+    - "cgpa_change"
+  attendance:
+    - "previous_attendance"
+    - "attendance_change"
+    - "avg_subject_attendance"
+    - "min_subject_attendance"
+    - "var_subject_attendance"
+  academic_performance:
+    - "avg_subject_grade_point"
+    - "min_subject_grade_point"
+    - "max_subject_grade_point"
+    - "var_subject_grade_point"
+  backlogs:
+    - "active_backlogs_count"
+    - "failed_subjects_count"
+    - "backlog_change"
+  credits:
+    - "total_sem_credits_registered"
+    - "total_sem_credits_earned"
+    - "credit_completion_ratio"
+  branch:
+    - "branch"
+  temporal_context:
+    - "current_semester"
+    - "has_historical_lag"
+
+model:
+  hidden_dims: [64, 32]
+  dropout_rate: 0.2
+  activation: "relu"
+
+training:
+  learning_rate: 0.001
+  batch_size: 32
+  epochs: 150
+  early_stopping_patience: 25
+  weight_decay: 0.0001        # L2 regularization
+  l1_lambda: 0.00005          # L1 regularization
+  huber_delta: 1.0            # Huber loss threshold
+  max_grad_norm: 1.0          # Gradient clipping threshold
+  seed: 42
+  deterministic: true
+
+logging:
+  results_dir: "results"
+  models_dir: "models"

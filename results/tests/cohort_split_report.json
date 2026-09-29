@@ -1,0 +1,15 @@
+{
+    "train_student_count": 300,
+    "validation_student_count": 100,
+    "test_student_count": 100,
+    "train_samples_count": 600,
+    "validation_samples_count": 200,
+    "test_samples_count": 200,
+    "train_validation_overlap": 0,
+    "train_test_overlap": 0,
+    "validation_test_overlap": 0,
+    "is_disjoint_train_val": true,
+    "is_disjoint_train_test": true,
+    "is_disjoint_val_test": true,
+    "deterministic": true
+}
