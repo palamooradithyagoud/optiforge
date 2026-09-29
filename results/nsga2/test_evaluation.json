@@ -1,0 +1,26 @@
+{
+    "test_mae": 0.8359,
+    "test_rmse": 1.0692,
+    "test_r2": -0.0453,
+    "test_huber_loss": 0.5449,
+    "trainable_parameters": 1281,
+    "single_sample_latency_ms": 0.0498,
+    "batch_latency_ms": 0.1068,
+    "training_time_seconds": 7.196,
+    "best_epoch": 4,
+    "genome": {
+        "hidden_dims": [
+            32,
+            16
+        ],
+        "dropout_rate": 0.0044,
+        "activation": "tanh",
+        "learning_rate": 0.004934,
+        "weight_decay": 0.0006031,
+        "l1_lambda": 0.0002576,
+        "huber_delta": 1.993,
+        "batch_size": 16,
+        "gradient_clip_norm": 0.5,
+        "epochs": 85
+    }
+}

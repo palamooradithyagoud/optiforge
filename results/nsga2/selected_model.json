@@ -1,0 +1,33 @@
+{
+    "selection_rule": "Candidate B: Balanced Compromise (Minimum normalized Euclidean distance to ideal point on validation Pareto front)",
+    "selected_individual_id": "gen10_ind009",
+    "genome": {
+        "hidden_dims": [
+            32,
+            16
+        ],
+        "dropout_rate": 0.0044,
+        "activation": "tanh",
+        "learning_rate": 0.004934,
+        "weight_decay": 0.0006031,
+        "l1_lambda": 0.0002576,
+        "huber_delta": 1.993,
+        "batch_size": 16,
+        "gradient_clip_norm": 0.5,
+        "epochs": 85
+    },
+    "validation_objectives": {
+        "validation_mae": 0.7494,
+        "generalization_gap": 0.0097,
+        "val_loss_variance": 0.07912,
+        "trainable_parameters": 1281,
+        "inference_latency_ms": 0.032,
+        "training_time_seconds": 11.195,
+        "validation_rmse": 1.0221,
+        "validation_r2": -0.0528,
+        "validation_loss": 0.5256,
+        "training_loss": 0.5353,
+        "best_epoch": 3,
+        "status": "success"
+    }
+}

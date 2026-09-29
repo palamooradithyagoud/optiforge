@@ -56,6 +56,8 @@ class BaselineRegressor(nn.Module):
             act_cls = nn.ELU
         elif act_lower == "gelu":
             act_cls = nn.GELU
+        elif act_lower == "tanh":
+            act_cls = nn.Tanh
         else:
             act_cls = nn.ReLU
 

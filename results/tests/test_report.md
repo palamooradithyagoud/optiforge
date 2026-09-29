@@ -353,13 +353,13 @@
     "mae": 0.8773,
     "rmse": 1.0851,
     "r2": -0.0765,
-    "latency_ms": 0.0506
+    "latency_ms": 0.052
   },
   "eval_run_2": {
     "mae": 0.8773,
     "rmse": 1.0851,
     "r2": -0.0765,
-    "latency_ms": 0.0494
+    "latency_ms": 0.0458
   },
   "retrained_model": false
 }

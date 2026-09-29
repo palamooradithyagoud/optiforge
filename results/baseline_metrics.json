@@ -10,8 +10,8 @@
         "total_parameters": 3585
     },
     "inference_latency": {
-        "batch_latency_ms": 0.0874,
-        "single_sample_latency_ms": 0.0494,
+        "batch_latency_ms": 0.0834,
+        "single_sample_latency_ms": 0.0458,
         "batch_size_benchmarked": 200,
         "benchmark_runs": 200
     },

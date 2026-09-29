@@ -1,0 +1,25 @@
+{
+    "optimization_mode": "standard",
+    "population_size": 16,
+    "generations": 10,
+    "seed": 42,
+    "total_evaluations_attempted": 173,
+    "cached_evaluations_count": 3,
+    "failed_evaluations_count": 0,
+    "total_wallclock_seconds": 296.41,
+    "pareto_front_size": 16,
+    "best_validation_mae": 0.7315,
+    "min_trainable_parameters": 769,
+    "min_inference_latency_ms": 0.0192,
+    "min_generalization_gap": 0.0030603355422675893,
+    "selected_candidate": {
+        "role": "Candidate B (Balanced Compromise)",
+        "validation_mae": 0.7494,
+        "validation_rmse": 1.0221,
+        "test_mae": 0.8359,
+        "test_rmse": 1.0692,
+        "test_r2": -0.0453,
+        "parameters": 1281,
+        "single_sample_latency_ms": 0.0498
+    }
+}

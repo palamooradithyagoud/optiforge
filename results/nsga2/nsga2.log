@@ -1,0 +1,25 @@
+2026-09-30 01:41:16,076 - INFO - ======================================================================
+2026-09-30 01:41:16,078 - INFO - STARTING PHASE 2 NSGA-II OPTIMIZATION [Mode: STANDARD]
+2026-09-30 01:41:16,078 - INFO - Population: 16 | Generations: 10 | Seed: 42
+2026-09-30 01:41:16,078 - INFO - ======================================================================
+2026-09-30 01:41:16,096 - INFO - Starting NSGA-II optimization: Population=16, Generations=10, Seed=42
+2026-09-30 01:41:47,554 - INFO - Generation 00/10 | PF Size: 11 | Best Val MAE: 0.7432 | Min Params:   769 | Min Lat: 0.0192 ms | Duration: 31.45s
+2026-09-30 01:42:10,719 - INFO - Generation 01/10 | PF Size: 16 | Best Val MAE: 0.7432 | Min Params:   769 | Min Lat: 0.0192 ms | Duration: 23.16s
+2026-09-30 01:42:36,744 - INFO - Generation 02/10 | PF Size: 16 | Best Val MAE: 0.7432 | Min Params:   769 | Min Lat: 0.0192 ms | Duration: 26.02s
+2026-09-30 01:43:03,347 - INFO - Generation 03/10 | PF Size: 16 | Best Val MAE: 0.7430 | Min Params:   769 | Min Lat: 0.0192 ms | Duration: 26.60s
+2026-09-30 01:43:20,805 - INFO - Generation 04/10 | PF Size: 16 | Best Val MAE: 0.7430 | Min Params:   769 | Min Lat: 0.0192 ms | Duration: 17.46s
+2026-09-30 01:43:44,691 - INFO - Generation 05/10 | PF Size: 13 | Best Val MAE: 0.7430 | Min Params:   769 | Min Lat: 0.0192 ms | Duration: 23.88s
+2026-09-30 01:44:14,792 - INFO - Generation 06/10 | PF Size: 16 | Best Val MAE: 0.7430 | Min Params:   769 | Min Lat: 0.0192 ms | Duration: 30.10s
+2026-09-30 01:44:35,761 - INFO - Generation 07/10 | PF Size: 16 | Best Val MAE: 0.7430 | Min Params:   769 | Min Lat: 0.0192 ms | Duration: 20.97s
+2026-09-30 01:45:06,456 - INFO - Generation 08/10 | PF Size: 16 | Best Val MAE: 0.7395 | Min Params:   769 | Min Lat: 0.0192 ms | Duration: 30.69s
+2026-09-30 01:45:34,363 - INFO - Generation 09/10 | PF Size: 16 | Best Val MAE: 0.7395 | Min Params:   769 | Min Lat: 0.0192 ms | Duration: 27.91s
+2026-09-30 01:46:10,772 - INFO - Generation 10/10 | PF Size: 16 | Best Val MAE: 0.7315 | Min Params:   769 | Min Lat: 0.0192 ms | Duration: 36.41s
+2026-09-30 01:46:10,842 - INFO - Convergence plot saved to: results/nsga2\nsga2_convergence.png
+2026-09-30 01:46:10,854 - INFO - Pareto front (16 individuals) saved to: results/nsga2\pareto_front.csv
+2026-09-30 01:46:10,859 - INFO - Evaluating selected Pareto candidate on untouched TEST set...
+2026-09-30 01:46:18,122 - INFO - Phase 2 report generated at: results/nsga2/PHASE2_REPORT.md
+2026-09-30 01:46:18,122 - INFO - ======================================================================
+2026-09-30 01:46:18,122 - INFO - PHASE 2 NSGA-II OPTIMIZATION COMPLETED
+2026-09-30 01:46:18,122 - INFO - Pareto Front Size: 16
+2026-09-30 01:46:18,122 - INFO - Selected Candidate Test MAE: 0.8359 | R²: -0.0453 | Params: 1281
+2026-09-30 01:46:18,123 - INFO - ======================================================================

@@ -1,0 +1,4 @@
+candidate_role,individual_id,validation_mae,validation_rmse,generalization_gap,val_loss_variance,trainable_parameters,inference_latency_ms,hidden_dims,dropout,activation,learning_rate
+candidate_a_best_mae,gen10_ind011,0.7315,0.9938,0.12468062495051124,0.013868215963592783,13313,0.3328,"[128, 64, 32]",0.2752,gelu,0.01
+candidate_b_balanced_compromise,gen10_ind009,0.7494,1.0221,0.009711273286024058,0.07911977389907797,1281,0.032,"[32, 16]",0.0044,tanh,0.004934
+candidate_c_parameter_efficient,gen9_ind008,0.7643,1.0106,0.14493214655742948,0.03757206335773544,769,0.0192,[32],0.3065,tanh,0.008436
