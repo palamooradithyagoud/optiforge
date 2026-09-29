@@ -1,0 +1,424 @@
+{
+    "T01": {
+        "test_name": "Phase 1 Regression & Cohort Invariants",
+        "verdict": "PASS",
+        "evidence": {
+            "train_students": 300,
+            "val_students": 100,
+            "test_students": 100,
+            "train_samples": 600,
+            "val_samples": 200,
+            "test_samples": 200,
+            "disjoint_train_val": true,
+            "disjoint_train_test": true,
+            "disjoint_val_test": true,
+            "temporal_order_preserved": true
+        }
+    },
+    "T02": {
+        "test_name": "Phase 2 Unit Test Regression",
+        "verdict": "PASS",
+        "evidence": {
+            "total_tests": 15,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "success": true
+        }
+    },
+    "T03": {
+        "test_name": "Test-Set Isolation Audit",
+        "verdict": "PASS",
+        "evidence": {
+            "total_occurrences_found": 8,
+            "leakage_occurrences": [],
+            "all_references": [
+                {
+                    "file": "optimize_nsga2.py",
+                    "line_number": 101,
+                    "line_content": "test_df: pd.DataFrame,",
+                    "classification": "SAFE (post-NSGA2 held-out evaluation)"
+                },
+                {
+                    "file": "optimize_nsga2.py",
+                    "line_number": 119,
+                    "line_content": "X_test = feature_pipeline.transform(test_df)",
+                    "classification": "SAFE (post-NSGA2 held-out evaluation)"
+                },
+                {
+                    "file": "optimize_nsga2.py",
+                    "line_number": 120,
+                    "line_content": "y_test = test_df[target_column].values.astype(np.float32)",
+                    "classification": "SAFE (post-NSGA2 held-out evaluation)"
+                },
+                {
+                    "file": "optimize_nsga2.py",
+                    "line_number": 170,
+                    "line_content": "metrics, test_preds = evaluate_model(model, X_test, y_test, criterion=criterion)",
+                    "classification": "SAFE (post-NSGA2 held-out evaluation)"
+                },
+                {
+                    "file": "optimize_nsga2.py",
+                    "line_number": 171,
+                    "line_content": "sample_tensor = torch.tensor(X_test[:1], dtype=torch.float32)",
+                    "classification": "SAFE (post-NSGA2 held-out evaluation)"
+                },
+                {
+                    "file": "optimize_nsga2.py",
+                    "line_number": 173,
+                    "line_content": "batch_latency = measure_inference_latency(model, torch.tensor(X_test, dtype=torch.float32), num_runs=100)",
+                    "classification": "SAFE (post-NSGA2 held-out evaluation)"
+                },
+                {
+                    "file": "optimize_nsga2.py",
+                    "line_number": 233,
+                    "line_content": "test_df = pd.read_csv(os.path.join(processed_dir, \"test.csv\"))",
+                    "classification": "SAFE (post-NSGA2 held-out evaluation)"
+                },
+                {
+                    "file": "optimize_nsga2.py",
+                    "line_number": 356,
+                    "line_content": "test_df=test_df,",
+                    "classification": "SAFE (post-NSGA2 held-out evaluation)"
+                }
+            ],
+            "isolation_guarantee": "GenomeEvaluator only accepts train_df and val_df; test_df is only evaluated once post-hoc."
+        }
+    },
+    "T04": {
+        "test_name": "Objective Re-Calculation",
+        "verdict": "PASS",
+        "evidence": {
+            "candidates_audited": 7,
+            "objectives_evaluated": 42,
+            "mismatches": 0,
+            "recalculation_csv": "results/nsga2\\objective_recalculation.csv"
+        }
+    },
+    "T05": {
+        "test_name": "Pareto Dominance Validation",
+        "verdict": "PASS",
+        "evidence": {
+            "total_pairs_checked": 120,
+            "dominated_pairs_detected": 0,
+            "pareto_front_size": 16,
+            "pareto_validation_csv": "results/nsga2\\pareto_validation.csv"
+        }
+    },
+    "T06": {
+        "test_name": "Crowding Distance Validation",
+        "verdict": "PASS",
+        "evidence": {
+            "has_nan": false,
+            "has_negative": false,
+            "has_infinite_boundaries": true,
+            "crowding_distances": [
+                "inf",
+                0.9205601706083805,
+                "inf",
+                "inf",
+                0.670349773453107,
+                1.0038667478929595,
+                0.5479618557894267,
+                "inf",
+                0.6470405802199314,
+                "inf",
+                1.0478270792623956,
+                0.8329343348768706,
+                "inf",
+                "inf",
+                1.7540171147407626,
+                "inf"
+            ]
+        }
+    },
+    "T07": {
+        "test_name": "Population Size Invariant",
+        "verdict": "PASS",
+        "evidence": {
+            "generations_found": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+            ],
+            "population_per_gen": {
+                "0": 16,
+                "1": 16,
+                "2": 16,
+                "3": 16,
+                "4": 16,
+                "5": 16,
+                "6": 16,
+                "7": 16,
+                "8": 16,
+                "9": 16,
+                "10": 16
+            },
+            "invariant_satisfied": true
+        }
+    },
+    "T08": {
+        "test_name": "Genome Validity Audit",
+        "verdict": "PASS",
+        "evidence": {
+            "total_genomes_audited": 176,
+            "invalid_genomes_count": 0,
+            "invalid_genomes_list": [],
+            "genome_audit_csv": "results/nsga2\\genome_audit.csv"
+        }
+    },
+    "T09": {
+        "test_name": "Genome Uniqueness & Caching Audit",
+        "verdict": "PASS",
+        "evidence": {
+            "total_unique_hashes": 70,
+            "hash_collisions": 0,
+            "total_evaluations_reported": 173,
+            "cached_evaluations_reported": 3
+        }
+    },
+    "T10": {
+        "test_name": "Determinism Audit",
+        "verdict": "PASS",
+        "evidence": {
+            "seed": 42,
+            "run_a_population_hashes": [
+                "c6625ed235cd71a164434ed0752fa41007c9cb7fa180856830515a45fda44f5a",
+                "c3dcf2995aff38e346624b7e30e5317c2cca1cac8608795d50798b311221c447",
+                "a1b09981921760ec4931866b6eb9ac5d1fed98c027337d64dc33f03845e6254e",
+                "81a575542d911703d925c45a0871b0ad8596656bd9c0599b0b24b0420c5526a5",
+                "ce85849ccae9ae04980d9213bf31be5d051ccba87d50b41b5c30f2d6cb85bd1d",
+                "2be8310af293c821c370880740e0467022811144c609d2c947ad36f61333d691"
+            ],
+            "run_b_population_hashes": [
+                "c6625ed235cd71a164434ed0752fa41007c9cb7fa180856830515a45fda44f5a",
+                "c3dcf2995aff38e346624b7e30e5317c2cca1cac8608795d50798b311221c447",
+                "a1b09981921760ec4931866b6eb9ac5d1fed98c027337d64dc33f03845e6254e",
+                "81a575542d911703d925c45a0871b0ad8596656bd9c0599b0b24b0420c5526a5",
+                "ce85849ccae9ae04980d9213bf31be5d051ccba87d50b41b5c30f2d6cb85bd1d",
+                "2be8310af293c821c370880740e0467022811144c609d2c947ad36f61333d691"
+            ],
+            "population_hashes_identical": true,
+            "pareto_front_hashes_identical": true,
+            "max_objective_difference": 0.0,
+            "deterministic": true
+        }
+    },
+    "T11": {
+        "test_name": "Different Seed Sanity Check",
+        "verdict": "PASS",
+        "evidence": {
+            "seed_42_hashes": [
+                "c6625ed235cd71a164434ed0752fa41007c9cb7fa180856830515a45fda44f5a",
+                "c3dcf2995aff38e346624b7e30e5317c2cca1cac8608795d50798b311221c447",
+                "a1b09981921760ec4931866b6eb9ac5d1fed98c027337d64dc33f03845e6254e"
+            ],
+            "seed_123_hashes": [
+                "1430c9c982d9d9e49331547d877b993084fa3ab76f84ab8ca4232cfb5df825d6",
+                "1bc4d50eb30d6e8d7eb93656766e5ecc1ba3cd13451a74cb400892f53cd7360d",
+                "a729f20ffb69ffb5125ccbeb1090838ab0590eb868280a02aca11b306f88f9ae"
+            ],
+            "populations_diverge": true
+        }
+    },
+    "T12": {
+        "test_name": "Crossover Sanity Audit",
+        "verdict": "PASS",
+        "evidence": {
+            "trials": 100,
+            "all_offspring_valid": true,
+            "offspring_changed_rate": 1.0
+        }
+    },
+    "T13": {
+        "test_name": "Mutation Sanity Audit",
+        "verdict": "PASS",
+        "evidence": {
+            "trials": 500,
+            "all_mutations_valid": true,
+            "mutation_frequency": 0.87
+        }
+    },
+    "T14": {
+        "test_name": "Model/Genome Consistency Audit",
+        "verdict": "PASS",
+        "evidence": {
+            "weight_layer_shapes": [
+                [
+                    32,
+                    22
+                ],
+                [
+                    16,
+                    32
+                ],
+                [
+                    1,
+                    16
+                ]
+            ],
+            "architecture_from_weights": [
+                32,
+                16
+            ],
+            "architecture_from_metadata": [
+                32,
+                16
+            ],
+            "parameter_count_from_weights": 1281,
+            "parameter_count_from_metadata": 1281
+        }
+    },
+    "T15": {
+        "test_name": "Selected Model Reproduction",
+        "verdict": "PASS",
+        "evidence": {
+            "stored_metrics": {
+                "test_mae": 0.8359,
+                "test_rmse": 1.0692,
+                "test_r2": -0.0453
+            },
+            "reproduced_metrics": {
+                "mae": 0.8359,
+                "rmse": 1.0692,
+                "r2": -0.0453
+            },
+            "differences": {
+                "mae_diff": 0.0,
+                "rmse_diff": 0.0,
+                "r2_diff": 0.0
+            }
+        }
+    },
+    "T16": {
+        "test_name": "Baseline Reproduction",
+        "verdict": "PASS",
+        "evidence": {
+            "reproduced_phase1_mae": 0.8773,
+            "expected_phase1_mae": 0.8773,
+            "reproduced_naive_mae": 0.8159,
+            "expected_naive_mae": 0.8159
+        }
+    },
+    "T17": {
+        "test_name": "Claimed NSGA-II Improvement",
+        "verdict": "PASS",
+        "evidence": {
+            "mae_change": -0.0414,
+            "rmse_change": -0.0159,
+            "r2_change": 0.0312,
+            "parameter_reduction_percent": 64.27,
+            "summary": "MAE improved by 0.0414, RMSE improved by 0.0159, parameters reduced by 64.3%."
+        }
+    },
+    "T18": {
+        "test_name": "Parameter Count Verification",
+        "verdict": "PASS",
+        "evidence": {
+            "layer_1_params": 736,
+            "layer_2_params": 528,
+            "output_layer_params": 17,
+            "manual_calculated_total": 1281,
+            "reported_parameters": 1281
+        }
+    },
+    "T19": {
+        "test_name": "Latency Objective Audit",
+        "verdict": "PASS WITH WARNINGS",
+        "evidence": {
+            "objective": "f5",
+            "latency_type": "FLOP-calibrated architectural inference latency proxy",
+            "formula": "FLOPs / (cpu_mflops_per_ms * 1e3)",
+            "units": "milliseconds (ms)",
+            "single_sample_benchmarked_latency_ms": 0.0498,
+            "audit_note": "f5 is a deterministic FLOP-calibrated proxy to ensure reproducibility across runs without OS thread-jitter, while wall-clock latency is benchmarked in evaluation metadata."
+        }
+    },
+    "T20": {
+        "test_name": "Computational Cost Objective Audit",
+        "verdict": "PASS WITH WARNINGS",
+        "evidence": {
+            "objective": "f6",
+            "cost_type": "Deterministic cumulative training FLOPs proxy",
+            "formula": "epochs * samples * 3 * forward_flops / cpu_flops_per_sec",
+            "units": "calibrated seconds",
+            "actual_wallclock_training_time_sec": 7.196,
+            "audit_note": "f6 uses a deterministic FLOP-based computational cost proxy to guarantee identical Pareto sorting across multiple runs, while actual training time is logged in evaluation metadata."
+        }
+    },
+    "T21": {
+        "test_name": "Hypervolume Indicator Audit",
+        "verdict": "PASS",
+        "evidence": {
+            "dimensionality": "2D",
+            "objectives_included": [
+                "f1: validation_mae",
+                "f2: generalization_gap"
+            ],
+            "reference_point": [
+                1.5,
+                2.0
+            ],
+            "convention": "Minimization (exact union of non-dominated rectangular slices)",
+            "audit_note": "Hypervolume is strictly computed in 2D over validation error (f1) and generalization gap (f2); it is accurately documented in PHASE2_REPORT.md as 2D."
+        }
+    },
+    "T22": {
+        "test_name": "Convergence Sanity Audit",
+        "verdict": "PASS",
+        "evidence": {
+            "generations_sequence_valid": true,
+            "initial_hypervolume": 1.46415,
+            "final_hypervolume": 1.53335,
+            "initial_best_mae": 0.7432,
+            "final_best_mae": 0.7315
+        }
+    },
+    "T23": {
+        "test_name": "Final Candidate Consistency Audit",
+        "verdict": "PASS",
+        "evidence": {
+            "selected_id": "gen10_ind009",
+            "exists_in_pareto_front": true,
+            "exists_in_final_candidates": true,
+            "validation_mae_consistent": true
+        }
+    },
+    "T24": {
+        "test_name": "Stale Artifact Detection",
+        "verdict": "PASS",
+        "evidence": {
+            "artifact_mtimes": {
+                "generations.csv": 1790712970.7817838,
+                "convergence.csv": 1790712970.7800868,
+                "population_history.csv": 1790712970.8515067,
+                "pareto_front.csv": 1790712970.8537705,
+                "final_candidates.csv": 1790712970.857609,
+                "selected_model.json": 1790712970.8586738,
+                "objective_summary.json": 1790712978.1214912,
+                "test_evaluation.json": 1790712978.1190717,
+                "determinism_report.json": 1790713786.859194
+            },
+            "time_spread_seconds": 816.08,
+            "is_single_run_consistent": true,
+            "audit_verdict": "All artifacts generated by the same unified optimization execution."
+        }
+    },
+    "T25": {
+        "test_name": "Clean-Environment Reproduction",
+        "verdict": "PASS",
+        "evidence": {
+            "clean_execution_successful": true,
+            "final_population_size": 4,
+            "final_pareto_front_size": 4
+        }
+    }
+}
