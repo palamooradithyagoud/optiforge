@@ -1,0 +1,27 @@
+{
+    "generations": 5,
+    "population_size": 16,
+    "adapted_pareto_front_size": 16,
+    "selected_candidate_id": "adapt_warm_008",
+    "selected_candidate_genome": {
+        "hidden_dims": [
+            32,
+            16
+        ],
+        "dropout_rate": 0.0044,
+        "activation": "tanh",
+        "learning_rate": 0.004934,
+        "weight_decay": 0.0006031,
+        "l1_lambda": 0.0002576,
+        "huber_delta": 1.993,
+        "batch_size": 16,
+        "gradient_clip_norm": 0.5,
+        "epochs": 85
+    },
+    "adaptation_validation_metrics": {
+        "best_epoch": 6,
+        "validation_mae": 0.805,
+        "validation_rmse": 1.0765,
+        "validation_r2": -0.0741
+    }
+}
