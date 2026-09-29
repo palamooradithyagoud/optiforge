@@ -1,0 +1,842 @@
+[
+  {
+    "file_path": "src/data_pipeline.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 22545,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/features.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 4988,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/loss.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 1950,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/model.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 3450,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/utils.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 4008,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/adaptation/calibration.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 9750,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/adaptation/evaluate_recovery.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 14068,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/adaptation/explainability.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 5889,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/adaptation/reoptimizer.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 18403,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/adaptation/visualize_adaptation.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 14697,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/adaptation/__init__.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 770,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/drift/detector.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 12933,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/drift/evaluate_ood.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 15311,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/drift/scenarios.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 16289,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/drift/visualize_drift.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 16627,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/drift/__init__.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 762,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/nsga2/convergence.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 6589,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/nsga2/crossover.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 4071,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/nsga2/evaluation.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 9821,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/nsga2/evolution.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 7797,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/nsga2/genome.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 7395,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/nsga2/mutation.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 3039,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/nsga2/objectives.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 4880,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/nsga2/population.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 3230,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/nsga2/selection.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 1661,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/nsga2/sorting.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 3262,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "src/nsga2/__init__.py",
+    "directory": "src",
+    "extension": ".py",
+    "size_bytes": 1312,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "tests/audit_full_phase1_4.py",
+    "directory": "tests",
+    "extension": ".py",
+    "size_bytes": 50307,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "tests/audit_phase2.py",
+    "directory": "tests",
+    "extension": ".py",
+    "size_bytes": 50659,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "tests/test_nsga2.py",
+    "directory": "tests",
+    "extension": ".py",
+    "size_bytes": 13227,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "tests/test_phase3.py",
+    "directory": "tests",
+    "extension": ".py",
+    "size_bytes": 15219,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "tests/test_phase4.py",
+    "directory": "tests",
+    "extension": ".py",
+    "size_bytes": 15693,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "data/processed/test.csv",
+    "directory": "data",
+    "extension": ".csv",
+    "size_bytes": 25151,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "data/processed/train.csv",
+    "directory": "data",
+    "extension": ".csv",
+    "size_bytes": 74306,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "data/processed/val.csv",
+    "directory": "data",
+    "extension": ".csv",
+    "size_bytes": 25107,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "data/raw/cse_batch500_semesters_1_2_3_summary.csv",
+    "directory": "data",
+    "extension": ".csv",
+    "size_bytes": 1016856,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "models/baseline_model.pt",
+    "directory": "models",
+    "extension": ".pt",
+    "size_bytes": 18601,
+    "status": "IMPLEMENTED",
+    "notes": "Trained model checkpoint / serialized pipeline"
+  },
+  {
+    "file_path": "models/feature_pipeline.pkl",
+    "directory": "models",
+    "extension": ".pkl",
+    "size_bytes": 2021,
+    "status": "IMPLEMENTED",
+    "notes": "Trained model checkpoint / serialized pipeline"
+  },
+  {
+    "file_path": "models/adaptation/adapted_model.pt",
+    "directory": "models",
+    "extension": ".pt",
+    "size_bytes": 8861,
+    "status": "IMPLEMENTED",
+    "notes": "Trained model checkpoint / serialized pipeline"
+  },
+  {
+    "file_path": "models/adaptation/calibrator.pkl",
+    "directory": "models",
+    "extension": ".pkl",
+    "size_bytes": 350,
+    "status": "IMPLEMENTED",
+    "notes": "Trained model checkpoint / serialized pipeline"
+  },
+  {
+    "file_path": "models/nsga2/nsga2_selected_model.pt",
+    "directory": "models",
+    "extension": ".pt",
+    "size_bytes": 10289,
+    "status": "IMPLEMENTED",
+    "notes": "Trained model checkpoint / serialized pipeline"
+  },
+  {
+    "file_path": "results/baseline_metrics.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 941,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/data_quality_report.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 767,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/training_history.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 5068,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/adaptation/adapted_pareto_front.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 2900,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/adaptation/conformal_coverage_intervals.png",
+    "directory": "results",
+    "extension": ".png",
+    "size_bytes": 272172,
+    "status": "IMPLEMENTED",
+    "notes": "Generated visual chart / diagnostic figure"
+  },
+  {
+    "file_path": "results/adaptation/explainability_shift.png",
+    "directory": "results",
+    "extension": ".png",
+    "size_bytes": 376363,
+    "status": "IMPLEMENTED",
+    "notes": "Generated visual chart / diagnostic figure"
+  },
+  {
+    "file_path": "results/adaptation/pareto_adaptation_shift.png",
+    "directory": "results",
+    "extension": ".png",
+    "size_bytes": 265724,
+    "status": "IMPLEMENTED",
+    "notes": "Generated visual chart / diagnostic figure"
+  },
+  {
+    "file_path": "results/adaptation/recovery_benchmark.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 718,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/adaptation/recovery_metrics.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 2620,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/adaptation/recovery_report.md",
+    "directory": "results",
+    "extension": ".md",
+    "size_bytes": 3063,
+    "status": "IMPLEMENTED",
+    "notes": "Documentation / summary report"
+  },
+  {
+    "file_path": "results/adaptation/recovery_waterfall.png",
+    "directory": "results",
+    "extension": ".png",
+    "size_bytes": 295473,
+    "status": "IMPLEMENTED",
+    "notes": "Generated visual chart / diagnostic figure"
+  },
+  {
+    "file_path": "results/adaptation/reoptimization_summary.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 718,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/drift_metrics.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 7333,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/drift_pvalues_heatmap.png",
+    "directory": "results",
+    "extension": ".png",
+    "size_bytes": 486228,
+    "status": "IMPLEMENTED",
+    "notes": "Generated visual chart / diagnostic figure"
+  },
+  {
+    "file_path": "results/drift/drift_vs_degradation.png",
+    "directory": "results",
+    "extension": ".png",
+    "size_bytes": 609705,
+    "status": "IMPLEMENTED",
+    "notes": "Generated visual chart / diagnostic figure"
+  },
+  {
+    "file_path": "results/drift/feature_distribution_shift.png",
+    "directory": "results",
+    "extension": ".png",
+    "size_bytes": 867388,
+    "status": "IMPLEMENTED",
+    "notes": "Generated visual chart / diagnostic figure"
+  },
+  {
+    "file_path": "results/drift/feature_shift_report.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 66171,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/ood_results.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 2311,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/robustness_report.md",
+    "directory": "results",
+    "extension": ".md",
+    "size_bytes": 6540,
+    "status": "IMPLEMENTED",
+    "notes": "Documentation / summary report"
+  },
+  {
+    "file_path": "results/drift/datasets/scenario_a_attendance_drift_10pct.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 29906,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/datasets/scenario_a_attendance_drift_15pct.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 30721,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/datasets/scenario_a_attendance_drift_20pct.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 31614,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/datasets/scenario_a_attendance_drift_5pct.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 30178,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/datasets/scenario_b_academic_drift_shift_0.5.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 26936,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/datasets/scenario_b_academic_drift_shift_1.0.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 28002,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/datasets/scenario_b_academic_drift_shift_1.5.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 28190,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/datasets/scenario_c_backlog_surge_plus_1.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 25630,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/datasets/scenario_c_backlog_surge_plus_2.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 25438,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/datasets/scenario_c_backlog_surge_plus_3.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 25427,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/datasets/scenario_d_cohort_shift.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 47808,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/datasets/scenario_e_compound_stress.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 34394,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/artifact_consistency_report.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 671,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/convergence.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 773,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/determinism_audit.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 1178,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/determinism_report.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 748,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/final_candidates.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 601,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/generations.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 773,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/genome_audit.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 8986,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/nsga2.log",
+    "directory": "results",
+    "extension": ".log",
+    "size_bytes": 2940,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "results/nsga2/nsga2_convergence.png",
+    "directory": "results",
+    "extension": ".png",
+    "size_bytes": 12031,
+    "status": "IMPLEMENTED",
+    "notes": "Generated visual chart / diagnostic figure"
+  },
+  {
+    "file_path": "results/nsga2/objective_recalculation.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 2954,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/objective_summary.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 785,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/pareto_front.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 2939,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/pareto_validation.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 6255,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/phase2_independent_audit.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 15486,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/phase2_independent_audit.md",
+    "directory": "results",
+    "extension": ".md",
+    "size_bytes": 8125,
+    "status": "IMPLEMENTED",
+    "notes": "Documentation / summary report"
+  },
+  {
+    "file_path": "results/nsga2/PHASE2_REPORT.md",
+    "directory": "results",
+    "extension": ".md",
+    "size_bytes": 5014,
+    "status": "IMPLEMENTED",
+    "notes": "Documentation / summary report"
+  },
+  {
+    "file_path": "results/nsga2/population_history.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 119430,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/selected_model.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 1042,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/nsga2/test_evaluation.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 660,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/tests/baseline_comparison.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 232,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/tests/cohort_split_report.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 446,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/tests/feature_ablation.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 317,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/tests/loss_curve.png",
+    "directory": "results",
+    "extension": ".png",
+    "size_bytes": 10857,
+    "status": "IMPLEMENTED",
+    "notes": "Generated visual chart / diagnostic figure"
+  },
+  {
+    "file_path": "results/tests/test_report.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 9705,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/tests/test_report.md",
+    "directory": "results",
+    "extension": ".md",
+    "size_bytes": 10348,
+    "status": "IMPLEMENTED",
+    "notes": "Documentation / summary report"
+  },
+  {
+    "file_path": "config.yaml",
+    "directory": "root",
+    "extension": ".yaml",
+    "size_bytes": 1452,
+    "status": "IMPLEMENTED",
+    "notes": "Root CLI entry point / configuration"
+  },
+  {
+    "file_path": "train.py",
+    "directory": "root",
+    "extension": ".py",
+    "size_bytes": 11835,
+    "status": "IMPLEMENTED",
+    "notes": "Root CLI entry point / configuration"
+  },
+  {
+    "file_path": "evaluate.py",
+    "directory": "root",
+    "extension": ".py",
+    "size_bytes": 6171,
+    "status": "IMPLEMENTED",
+    "notes": "Root CLI entry point / configuration"
+  },
+  {
+    "file_path": "optimize_nsga2.py",
+    "directory": "root",
+    "extension": ".py",
+    "size_bytes": 23516,
+    "status": "IMPLEMENTED",
+    "notes": "Root CLI entry point / configuration"
+  },
+  {
+    "file_path": "test_phase1.py",
+    "directory": "root",
+    "extension": ".py",
+    "size_bytes": 42868,
+    "status": "IMPLEMENTED",
+    "notes": "Root CLI entry point / configuration"
+  },
+  {
+    "file_path": "requirements.txt",
+    "directory": "root",
+    "extension": ".txt",
+    "size_bytes": 73,
+    "status": "IMPLEMENTED",
+    "notes": "Root CLI entry point / configuration"
+  },
+  {
+    "file_path": "README.md",
+    "directory": "root",
+    "extension": ".md",
+    "size_bytes": 2415,
+    "status": "IMPLEMENTED",
+    "notes": "Root CLI entry point / configuration"
+  },
+  {
+    "file_path": "run_pipeline.py",
+    "directory": "root",
+    "extension": ".py",
+    "size_bytes": 0,
+    "status": "MISSING",
+    "notes": "Centralized end-to-end pipeline orchestrator script missing; individual CLI scripts used instead."
+  }
+]

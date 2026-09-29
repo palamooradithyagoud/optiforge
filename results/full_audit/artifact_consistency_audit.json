@@ -1,0 +1,24 @@
+{
+  "all_artifacts_present": true,
+  "artifact_presence": {
+    "results/drift/drift_metrics.json": true,
+    "results/drift/ood_results.csv": true,
+    "results/drift/robustness_report.md": true,
+    "results/drift/feature_shift_report.json": true,
+    "results/adaptation/recovery_benchmark.csv": true,
+    "results/adaptation/recovery_metrics.json": true,
+    "results/adaptation/recovery_report.md": true,
+    "results/adaptation/reoptimization_summary.json": true,
+    "models/adaptation/adapted_model.pt": true,
+    "models/adaptation/calibrator.pkl": true
+  },
+  "visualizations_present": {
+    "drift_pvalues_heatmap.png": true,
+    "drift_vs_degradation.png": true,
+    "feature_distribution_shift.png": true,
+    "recovery_waterfall.png": true,
+    "conformal_coverage_intervals.png": true,
+    "pareto_adaptation_shift.png": true,
+    "explainability_shift.png": true
+  }
+}

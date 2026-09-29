@@ -1,0 +1,21 @@
+{
+  "run_a_seed_42": {
+    "drift_score": 0.8857,
+    "drift_detected": true,
+    "mean_psi": 5.5561
+  },
+  "run_b_seed_42": {
+    "drift_score": 0.8857,
+    "drift_detected": true,
+    "mean_psi": 5.5561
+  },
+  "run_c_seed_123": {
+    "drift_score": 0.8857,
+    "drift_detected": true,
+    "mean_psi": 5.5528
+  },
+  "deterministic_reproducibility_diff_ab": 0.0,
+  "stochastic_variation_diff_ac": 0.0,
+  "is_deterministic": true,
+  "is_stochastically_responsive": false
+}

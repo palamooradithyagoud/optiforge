@@ -1,0 +1,11 @@
+rank,feature_name,mean_absolute_attribution,sample_0_attribution,completeness_verified
+1,backlog_change,1.966504,2.006669,True
+2,previous_attendance,0.514489,0.554624,True
+3,total_sem_credits_earned,0.488153,0.475083,True
+4,attendance_change,0.483039,0.526951,True
+5,credit_completion_ratio,0.469173,0.464748,True
+6,active_backlogs_count,0.333335,0.304476,True
+7,failed_subjects_count,0.310096,0.312373,True
+8,avg_subject_attendance,0.222524,0.241328,True
+9,cgpa_change,0.12771,0.110217,True
+10,var_subject_attendance,0.109401,0.083719,True
