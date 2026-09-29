@@ -1,0 +1,14 @@
+scenario_id,family,scenario_name,parameter,severity,mae,rmse,r2,bias,delta_mae,pct_delta_mae,delta_rmse,mean_pred,mean_gt
+clean_baseline,Baseline,Clean Test Baseline (Untouched),none,0.0,0.8359,1.0692,-0.0453,0.0128,0.0,0.0,0.0,7.6472,7.6344
+scenario_a_attendance_drift_5pct,Scenario A: Attendance Drift,Attendance Drift -5%,scale_down,0.05,0.8305,1.0672,-0.0412,0.0343,-0.0054,-0.65,-0.002,7.6688,7.6344
+scenario_a_attendance_drift_10pct,Scenario A: Attendance Drift,Attendance Drift -10%,scale_down,0.1,0.8337,1.0707,-0.048,0.0123,-0.0022,-0.26,0.0015,7.6467,7.6344
+scenario_a_attendance_drift_15pct,Scenario A: Attendance Drift,Attendance Drift -15%,scale_down,0.15,0.8479,1.0817,-0.0698,-0.0489,0.012,1.44,0.0125,7.5856,7.6344
+scenario_a_attendance_drift_20pct,Scenario A: Attendance Drift,Attendance Drift -20%,scale_down,0.2,0.8742,1.106,-0.1183,-0.1433,0.0383,4.58,0.0368,7.4911,7.6344
+scenario_b_academic_drift_shift_0.5,Scenario B: Academic Drift (Syllabus Shock),Academic Drift -0.5 SGPA,grade_shift,-0.5,0.8305,1.0668,-0.0404,0.0299,-0.0054,-0.65,-0.0024,7.6644,7.6344
+scenario_b_academic_drift_shift_1.0,Scenario B: Academic Drift (Syllabus Shock),Academic Drift -1.0 SGPA,grade_shift,-1.0,0.8378,1.0752,-0.0569,-0.0046,0.0019,0.23,0.006,7.6299,7.6344
+scenario_b_academic_drift_shift_1.5,Scenario B: Academic Drift (Syllabus Shock),Academic Drift -1.5 SGPA,grade_shift,-1.5,0.8622,1.1018,-0.1099,-0.0954,0.0263,3.15,0.0326,7.539,7.6344
+scenario_c_backlog_surge_plus_1,Scenario C: Backlog Surge,Backlog Surge +1,backlog_increment,1.0,0.8131,1.0617,-0.0305,0.1139,-0.0228,-2.73,-0.0075,7.7483,7.6344
+scenario_c_backlog_surge_plus_2,Scenario C: Backlog Surge,Backlog Surge +2,backlog_increment,2.0,0.8184,1.0642,-0.0354,0.086,-0.0175,-2.09,-0.005,7.7205,7.6344
+scenario_c_backlog_surge_plus_3,Scenario C: Backlog Surge,Backlog Surge +3,backlog_increment,3.0,0.8127,1.0585,-0.0244,0.109,-0.0232,-2.78,-0.0107,7.7435,7.6344
+scenario_d_cohort_shift,Scenario D: Cohort Demographic Shift,Synthesized Cohort Shift,multivariate_shift,1.0,0.8413,1.0781,-0.0626,-0.0021,0.0054,0.65,0.0089,7.6323,7.6344
+scenario_e_compound_stress,Scenario E: Compound Extreme Stress,"Compound Stress (-15% Att, +2 Backlogs, -0.75 SGPA)",compound,2.0,0.8089,1.0594,-0.0261,0.1618,-0.027,-3.23,-0.0098,7.7962,7.6344

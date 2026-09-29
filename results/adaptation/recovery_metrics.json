@@ -1,0 +1,75 @@
+{
+    "benchmark_rows": [
+        {
+            "stage_id": "1_clean_baseline",
+            "pipeline_stage": "1. Clean Baseline (Phase 2 Model on Clean Test)",
+            "evaluation_cohort": "Clean Test (Untouched)",
+            "mae": 0.8359,
+            "rmse": 1.0692,
+            "r2": -0.0453,
+            "mean_bias": 0.0128,
+            "delta_mae_vs_clean": 0.0,
+            "conformal_coverage_90": "N/A",
+            "mean_interval_width": "N/A",
+            "single_latency_ms": 0.0374
+        },
+        {
+            "stage_id": "2_drift_degradation",
+            "pipeline_stage": "2. Drift Degradation (Phase 2 Model on Drift)",
+            "evaluation_cohort": "Compound Extreme Stress",
+            "mae": 0.8089,
+            "rmse": 1.0594,
+            "r2": -0.0261,
+            "mean_bias": 0.1618,
+            "delta_mae_vs_clean": -0.027,
+            "conformal_coverage_90": "N/A",
+            "mean_interval_width": "N/A",
+            "single_latency_ms": 0.0288
+        },
+        {
+            "stage_id": "3_reoptimized_recovery",
+            "pipeline_stage": "3. Re-Optimized Recovery (Adapted Model)",
+            "evaluation_cohort": "Compound Extreme Stress",
+            "mae": 0.8131,
+            "rmse": 1.0843,
+            "r2": -0.075,
+            "mean_bias": 0.2859,
+            "delta_mae_vs_clean": -0.0228,
+            "conformal_coverage_90": "N/A",
+            "mean_interval_width": "N/A",
+            "single_latency_ms": 0.0436
+        },
+        {
+            "stage_id": "4_calibrated_output",
+            "pipeline_stage": "4. Calibrated Output (Adapted + Conformal)",
+            "evaluation_cohort": "Compound Extreme Stress (Calibrated)",
+            "mae": 0.817,
+            "rmse": 1.0459,
+            "r2": -0.0001,
+            "mean_bias": -0.0,
+            "delta_mae_vs_clean": -0.0189,
+            "conformal_coverage_90": "90.5%",
+            "mean_interval_width": "3.4896",
+            "single_latency_ms": 0.0436
+        }
+    ],
+    "conformal_details": {
+        "target_confidence": 0.9,
+        "empirical_coverage": 0.905,
+        "mean_interval_width": 3.4896,
+        "pre_calibration_bias": 0.2859,
+        "post_calibration_bias": -0.0,
+        "global_quantile": 1.7448,
+        "subgroup_quantiles": {
+            "high_risk": 1.7448,
+            "standard": 1.7448
+        },
+        "subgroup_metrics": {
+            "high_risk": {
+                "count": 200,
+                "coverage": 0.905,
+                "mean_width": 3.4896
+            }
+        }
+    }
+}
