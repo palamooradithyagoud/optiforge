@@ -1,40 +1,35 @@
 {
-    "clean_test": {
+    "clean_baseline": {
         "drift_detected": false,
-        "drift_score": 0.0742,
+        "drift_score": 0.0432,
         "action": "PROCEED_TO_PREDICT",
-        "num_drifting_features": 1,
-        "drift_feature_ratio": 0.0476,
-        "mean_psi": 0.0342,
-        "significant_features": [
-            "previous_cgpa"
-        ]
+        "num_drifting_features": 0,
+        "drift_feature_ratio": 0.0,
+        "mean_psi": 0.0324,
+        "significant_features": []
     },
     "scenario_a_attendance_drift_5pct": {
         "drift_detected": true,
-        "drift_score": 0.5714,
+        "drift_score": 0.5143,
         "action": "TRIGGER_ADAPTATION",
-        "num_drifting_features": 6,
-        "drift_feature_ratio": 0.2857,
-        "mean_psi": 0.4469,
+        "num_drifting_features": 4,
+        "drift_feature_ratio": 0.1905,
+        "mean_psi": 0.3032,
         "significant_features": [
-            "previous_cgpa",
             "previous_attendance",
             "attendance_change",
             "avg_subject_attendance",
-            "min_subject_attendance",
-            "var_subject_attendance"
+            "min_subject_attendance"
         ]
     },
     "scenario_a_attendance_drift_10pct": {
         "drift_detected": true,
-        "drift_score": 0.5714,
+        "drift_score": 0.5429,
         "action": "TRIGGER_ADAPTATION",
-        "num_drifting_features": 6,
-        "drift_feature_ratio": 0.2857,
-        "mean_psi": 1.2613,
+        "num_drifting_features": 5,
+        "drift_feature_ratio": 0.2381,
+        "mean_psi": 1.19,
         "significant_features": [
-            "previous_cgpa",
             "previous_attendance",
             "attendance_change",
             "avg_subject_attendance",
@@ -44,13 +39,12 @@
     },
     "scenario_a_attendance_drift_15pct": {
         "drift_detected": true,
-        "drift_score": 0.5714,
+        "drift_score": 0.5429,
         "action": "TRIGGER_ADAPTATION",
-        "num_drifting_features": 6,
-        "drift_feature_ratio": 0.2857,
-        "mean_psi": 1.9732,
+        "num_drifting_features": 5,
+        "drift_feature_ratio": 0.2381,
+        "mean_psi": 1.8965,
         "significant_features": [
-            "previous_cgpa",
             "previous_attendance",
             "attendance_change",
             "avg_subject_attendance",
@@ -60,13 +54,12 @@
     },
     "scenario_a_attendance_drift_20pct": {
         "drift_detected": true,
-        "drift_score": 0.5714,
+        "drift_score": 0.5429,
         "action": "TRIGGER_ADAPTATION",
-        "num_drifting_features": 6,
-        "drift_feature_ratio": 0.2857,
-        "mean_psi": 2.3963,
+        "num_drifting_features": 5,
+        "drift_feature_ratio": 0.2381,
+        "mean_psi": 2.3605,
         "significant_features": [
-            "previous_cgpa",
             "previous_attendance",
             "attendance_change",
             "avg_subject_attendance",
@@ -80,7 +73,7 @@
         "action": "TRIGGER_ADAPTATION",
         "num_drifting_features": 7,
         "drift_feature_ratio": 0.3333,
-        "mean_psi": 0.3744,
+        "mean_psi": 0.3585,
         "significant_features": [
             "previous_sgpa",
             "previous_cgpa",
@@ -97,7 +90,7 @@
         "action": "TRIGGER_ADAPTATION",
         "num_drifting_features": 7,
         "drift_feature_ratio": 0.3333,
-        "mean_psi": 0.7434,
+        "mean_psi": 0.7858,
         "significant_features": [
             "previous_sgpa",
             "previous_cgpa",
@@ -114,7 +107,7 @@
         "action": "TRIGGER_ADAPTATION",
         "num_drifting_features": 7,
         "drift_feature_ratio": 0.3333,
-        "mean_psi": 2.1018,
+        "mean_psi": 2.2063,
         "significant_features": [
             "previous_sgpa",
             "previous_cgpa",
@@ -127,13 +120,12 @@
     },
     "scenario_c_backlog_surge_plus_1": {
         "drift_detected": true,
-        "drift_score": 0.5714,
+        "drift_score": 0.5429,
         "action": "TRIGGER_ADAPTATION",
-        "num_drifting_features": 6,
-        "drift_feature_ratio": 0.2857,
-        "mean_psi": 3.0429,
+        "num_drifting_features": 5,
+        "drift_feature_ratio": 0.2381,
+        "mean_psi": 3.0372,
         "significant_features": [
-            "previous_cgpa",
             "active_backlogs_count",
             "failed_subjects_count",
             "backlog_change",
@@ -143,13 +135,12 @@
     },
     "scenario_c_backlog_surge_plus_2": {
         "drift_detected": true,
-        "drift_score": 0.5714,
+        "drift_score": 0.5429,
         "action": "TRIGGER_ADAPTATION",
-        "num_drifting_features": 6,
-        "drift_feature_ratio": 0.2857,
-        "mean_psi": 3.1903,
+        "num_drifting_features": 5,
+        "drift_feature_ratio": 0.2381,
+        "mean_psi": 3.1904,
         "significant_features": [
-            "previous_cgpa",
             "active_backlogs_count",
             "failed_subjects_count",
             "backlog_change",
@@ -159,13 +150,12 @@
     },
     "scenario_c_backlog_surge_plus_3": {
         "drift_detected": true,
-        "drift_score": 0.5714,
+        "drift_score": 0.5429,
         "action": "TRIGGER_ADAPTATION",
-        "num_drifting_features": 6,
-        "drift_feature_ratio": 0.2857,
-        "mean_psi": 3.1903,
+        "num_drifting_features": 5,
+        "drift_feature_ratio": 0.2381,
+        "mean_psi": 3.1904,
         "significant_features": [
-            "previous_cgpa",
             "active_backlogs_count",
             "failed_subjects_count",
             "backlog_change",
@@ -179,7 +169,7 @@
         "action": "TRIGGER_ADAPTATION",
         "num_drifting_features": 13,
         "drift_feature_ratio": 0.619,
-        "mean_psi": 0.6355,
+        "mean_psi": 0.7099,
         "significant_features": [
             "previous_sgpa",
             "previous_cgpa",
@@ -202,7 +192,7 @@
         "action": "TRIGGER_ADAPTATION",
         "num_drifting_features": 17,
         "drift_feature_ratio": 0.8095,
-        "mean_psi": 5.5575,
+        "mean_psi": 5.5803,
         "significant_features": [
             "previous_sgpa",
             "previous_cgpa",

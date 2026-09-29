@@ -1,0 +1,14 @@
+scenario_id,drift_detected,action,drift_score,mean_psi,num_drifting_features,drift_feature_ratio,num_features_evaluated
+clean_baseline,False,PROCEED_TO_PREDICT,0.0432,0.0324,0,0.0,21
+scenario_a_attendance_drift_5pct,True,TRIGGER_ADAPTATION,0.5143,0.3032,4,0.1905,21
+scenario_a_attendance_drift_10pct,True,TRIGGER_ADAPTATION,0.5429,1.19,5,0.2381,21
+scenario_a_attendance_drift_15pct,True,TRIGGER_ADAPTATION,0.5429,1.8965,5,0.2381,21
+scenario_a_attendance_drift_20pct,True,TRIGGER_ADAPTATION,0.5429,2.3605,5,0.2381,21
+scenario_b_academic_drift_shift_0.5,True,TRIGGER_ADAPTATION,0.6,0.3585,7,0.3333,21
+scenario_b_academic_drift_shift_1.0,True,TRIGGER_ADAPTATION,0.6,0.7858,7,0.3333,21
+scenario_b_academic_drift_shift_1.5,True,TRIGGER_ADAPTATION,0.6,2.2063,7,0.3333,21
+scenario_c_backlog_surge_plus_1,True,TRIGGER_ADAPTATION,0.5429,3.0372,5,0.2381,21
+scenario_c_backlog_surge_plus_2,True,TRIGGER_ADAPTATION,0.5429,3.1904,5,0.2381,21
+scenario_c_backlog_surge_plus_3,True,TRIGGER_ADAPTATION,0.5429,3.1904,5,0.2381,21
+scenario_d_cohort_shift,True,TRIGGER_ADAPTATION,0.7714,0.7099,13,0.619,21
+scenario_e_compound_stress,True,TRIGGER_ADAPTATION,0.8857,5.5803,17,0.8095,21

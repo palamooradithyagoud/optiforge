@@ -11,28 +11,28 @@
 Phase 3 validates the robustness and vulnerability envelope of our frozen Phase 2 multi-objective neural regressor when exposed to non-stationary student distributions. Using the held-out 100-student test split (200 longitudinal semester records), we introduced 5 controlled perturbation families spanning 12 distinct experimental scenarios without modifying ground-truth labels (`next_semester_sgpa`) and without refitting the Phase 1 feature scaler.
 
 Key empirical findings:
-* **Clean Baseline Performance:** The frozen model exhibits $\text{MAE} = 0.8359$, $\text{RMSE} = 1.0692$, and $R^2 = -0.0453$ on untouched test data.
-* **Maximum Degradation Scenario:** `Attendance Drift -20%` induced the most severe performance collapse, surging MAE to **0.8742** ($\Delta\text{MAE} = +0.0383$, **+4.6%** degradation) and shifting prediction bias to **-0.1433**.
-* **Most Resilient Domain:** `Compound Stress (-15% Att, +2 Backlogs, -0.75 SGPA)` showed minimal disruption ($\Delta\text{MAE} = +-0.0270$, +-3.2%).
+* **Clean Baseline Performance:** The frozen model exhibits $\text{MAE} = 0.7480$, $\text{RMSE} = 1.0070$, and $R^2 = -0.0220$ on untouched test data.
+* **Maximum Degradation Scenario:** `Attendance Drift -20%` induced the most severe performance collapse, surging MAE to **0.7765** ($\Delta\text{MAE} = +0.0285$, **+3.8%** degradation) and shifting prediction bias to **-0.0435**.
+* **Most Resilient Domain:** `Backlog Surge +3` showed minimal disruption ($\Delta\text{MAE} = +-0.0100$, +-1.3%).
 * **Asymmetric Prediction Bias:** Grade deflation and backlog surges induce pronounced positive prediction bias, causing the static model to dangerously over-predict performance for struggling students.
 
 ## 2. Quantitative Robustness Benchmark Across All Scenarios
 
 | Scenario Identifier | Perturbation Family | Severity Level | MAE | RMSE | $R^2$ | Mean Bias | $\Delta$ MAE | % $\Delta$ MAE |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Clean Test Baseline (Untouched)** | Baseline | `0.0` | 0.8359 | 1.0692 | -0.0453 | +0.0128 | — | — |
-| **Attendance Drift -5%** | Scenario A: Attendance Drift | `0.05` | 0.8305 | 1.0672 | -0.0412 | +0.0343 | -0.0054 | -0.7% |
-| **Attendance Drift -10%** | Scenario A: Attendance Drift | `0.1` | 0.8337 | 1.0707 | -0.0480 | +0.0123 | -0.0022 | -0.3% |
-| **Attendance Drift -15%** | Scenario A: Attendance Drift | `0.15` | 0.8479 | 1.0817 | -0.0698 | -0.0489 | +0.0120 | +1.4% |
-| **Attendance Drift -20%** | Scenario A: Attendance Drift | `0.2` | 0.8742 | 1.1060 | -0.1183 | -0.1433 | +0.0383 | +4.6% |
-| **Academic Drift -0.5 SGPA** | Scenario B: Academic Drift (Syllabus Shock) | `-0.5` | 0.8305 | 1.0668 | -0.0404 | +0.0299 | -0.0054 | -0.7% |
-| **Academic Drift -1.0 SGPA** | Scenario B: Academic Drift (Syllabus Shock) | `-1.0` | 0.8378 | 1.0752 | -0.0569 | -0.0046 | +0.0019 | +0.2% |
-| **Academic Drift -1.5 SGPA** | Scenario B: Academic Drift (Syllabus Shock) | `-1.5` | 0.8622 | 1.1018 | -0.1099 | -0.0954 | +0.0263 | +3.1% |
-| **Backlog Surge +1** | Scenario C: Backlog Surge | `1.0` | 0.8131 | 1.0617 | -0.0305 | +0.1139 | -0.0228 | -2.7% |
-| **Backlog Surge +2** | Scenario C: Backlog Surge | `2.0` | 0.8184 | 1.0642 | -0.0354 | +0.0860 | -0.0175 | -2.1% |
-| **Backlog Surge +3** | Scenario C: Backlog Surge | `3.0` | 0.8127 | 1.0585 | -0.0244 | +0.1090 | -0.0232 | -2.8% |
-| **Synthesized Cohort Shift** | Scenario D: Cohort Demographic Shift | `1.0` | 0.8413 | 1.0781 | -0.0626 | -0.0021 | +0.0054 | +0.7% |
-| **Compound Stress (-15% Att, +2 Backlogs, -0.75 SGPA)** | Scenario E: Compound Extreme Stress | `2.0` | 0.8089 | 1.0594 | -0.0261 | +0.1618 | -0.0270 | -3.2% |
+| **Clean Development Baseline (Untouched Val Cohort)** | Baseline | `0.0` | 0.7480 | 1.0070 | -0.0220 | +0.0934 | — | — |
+| **Attendance Drift -5%** | Scenario A: Attendance Drift | `0.05` | 0.7479 | 1.0097 | -0.0275 | +0.1188 | -0.0001 | -0.0% |
+| **Attendance Drift -10%** | Scenario A: Attendance Drift | `0.1` | 0.7511 | 1.0102 | -0.0284 | +0.1005 | +0.0031 | +0.4% |
+| **Attendance Drift -15%** | Scenario A: Attendance Drift | `0.15` | 0.7573 | 1.0111 | -0.0303 | +0.0442 | +0.0093 | +1.2% |
+| **Attendance Drift -20%** | Scenario A: Attendance Drift | `0.2` | 0.7765 | 1.0192 | -0.0468 | -0.0435 | +0.0285 | +3.8% |
+| **Academic Drift -0.5 SGPA** | Scenario B: Academic Drift (Syllabus Shock) | `-0.5` | 0.7473 | 1.0100 | -0.0280 | +0.1124 | -0.0007 | -0.1% |
+| **Academic Drift -1.0 SGPA** | Scenario B: Academic Drift (Syllabus Shock) | `-1.0` | 0.7495 | 1.0096 | -0.0274 | +0.0837 | +0.0015 | +0.2% |
+| **Academic Drift -1.5 SGPA** | Scenario B: Academic Drift (Syllabus Shock) | `-1.5` | 0.7660 | 1.0161 | -0.0405 | +0.0008 | +0.0180 | +2.4% |
+| **Backlog Surge +1** | Scenario C: Backlog Surge | `1.0` | 0.7422 | 1.0083 | -0.0247 | +0.1966 | -0.0058 | -0.8% |
+| **Backlog Surge +2** | Scenario C: Backlog Surge | `2.0` | 0.7391 | 1.0010 | -0.0099 | +0.1714 | -0.0089 | -1.2% |
+| **Backlog Surge +3** | Scenario C: Backlog Surge | `3.0` | 0.7380 | 1.0046 | -0.0172 | +0.1916 | -0.0100 | -1.3% |
+| **Synthesized Cohort Shift** | Scenario D: Cohort Demographic Shift | `1.0` | 0.7650 | 1.0367 | -0.0832 | +0.0818 | +0.0170 | +2.3% |
+| **Compound Stress (-15% Att, +2 Backlogs, -0.75 SGPA)** | Scenario E: Compound Extreme Stress | `2.0` | 0.7437 | 1.0229 | -0.0545 | +0.2457 | -0.0043 | -0.6% |
 
 ## 3. Per-Scenario Degradation Analysis
 

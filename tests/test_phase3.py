@@ -40,10 +40,12 @@ class TestPhase3QA(unittest.TestCase):
     def setUpClass(cls):
         set_seed(42, deterministic=True)
         cls.test_csv_path = os.path.join(WORKSPACE_ROOT, "data", "processed", "test.csv")
+        cls.val_csv_path = os.path.join(WORKSPACE_ROOT, "data", "processed", "val.csv")
         cls.train_csv_path = os.path.join(WORKSPACE_ROOT, "data", "processed", "train.csv")
         cls.datasets_dir = os.path.join(WORKSPACE_ROOT, "results", "drift", "datasets")
         cls.results_dir = os.path.join(WORKSPACE_ROOT, "results", "drift")
         
+        cls.clean_dev_df = pd.read_csv(cls.val_csv_path)
         cls.clean_test_df = pd.read_csv(cls.test_csv_path)
         cls.train_df = pd.read_csv(cls.train_csv_path)
         
@@ -63,8 +65,8 @@ class TestPhase3QA(unittest.TestCase):
 
     def test_tc02_ood_dataset_structure_and_nans(self):
         """Verify each scenario dataset has exact row count, matching schema, and zero NaNs."""
-        expected_rows = len(self.clean_test_df)
-        expected_cols = list(self.clean_test_df.columns)
+        expected_rows = len(self.clean_dev_df)
+        expected_cols = list(self.clean_dev_df.columns)
         
         for cfg in SCENARIO_CONFIGS:
             fpath = os.path.join(self.datasets_dir, cfg["filename"])
@@ -75,19 +77,19 @@ class TestPhase3QA(unittest.TestCase):
             self.assertFalse(np.isinf(df.select_dtypes(include=[np.number]).values).any(), f"Inf detected in {cfg['id']}")
 
     def test_tc03_target_and_student_preservation(self):
-        """Verify ground-truth next_semester_sgpa and student_id are strictly preserved."""
+        """Verify ground-truth next_semester_sgpa and student_id are strictly preserved from dev cohort."""
         for cfg in SCENARIO_CONFIGS:
             fpath = os.path.join(self.datasets_dir, cfg["filename"])
             df = pd.read_csv(fpath)
             # Student IDs
             self.assertTrue(
-                df["student_id"].equals(self.clean_test_df["student_id"]),
+                df["student_id"].equals(self.clean_dev_df["student_id"]),
                 f"student_id sequence altered in {cfg['id']}"
             )
             # Target SGPA
             np.testing.assert_array_almost_equal(
                 df["next_semester_sgpa"].values,
-                self.clean_test_df["next_semester_sgpa"].values,
+                self.clean_dev_df["next_semester_sgpa"].values,
                 decimal=5,
                 err_msg=f"Ground-truth target next_semester_sgpa modified in {cfg['id']}"
             )

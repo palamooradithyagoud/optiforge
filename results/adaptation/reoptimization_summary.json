@@ -2,26 +2,25 @@
     "generations": 5,
     "population_size": 16,
     "adapted_pareto_front_size": 16,
-    "selected_candidate_id": "adapt_warm_008",
+    "selected_candidate_id": "adapt_g05_012",
     "selected_candidate_genome": {
         "hidden_dims": [
-            32,
-            16
+            128
         ],
-        "dropout_rate": 0.0044,
+        "dropout_rate": 0.2464,
         "activation": "tanh",
-        "learning_rate": 0.004934,
-        "weight_decay": 0.0006031,
-        "l1_lambda": 0.0002576,
-        "huber_delta": 1.993,
+        "learning_rate": 0.008168,
+        "weight_decay": 0.0019294,
+        "l1_lambda": 0.0003428,
+        "huber_delta": 1.498,
         "batch_size": 16,
-        "gradient_clip_norm": 0.5,
-        "epochs": 85
+        "gradient_clip_norm": 2.0,
+        "epochs": 70
     },
     "adaptation_validation_metrics": {
-        "best_epoch": 6,
-        "validation_mae": 0.805,
-        "validation_rmse": 1.0765,
-        "validation_r2": -0.0741
+        "best_epoch": 26,
+        "validation_mae": 0.6425,
+        "validation_rmse": 0.8703,
+        "validation_r2": 0.0294
     }
 }

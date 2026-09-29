@@ -1,0 +1,43 @@
+{
+    "metadata": {
+        "title": "Drift Detector Threshold Provenance Report",
+        "source_reference_data": "data/processed/train.csv (300 students, 600 samples)",
+        "validation_development_cohort": "data/processed/val.csv (100 students, 200 samples)",
+        "final_test_status": "EXCLUDED (Untouched, zero leakage)",
+        "seed": 42
+    },
+    "thresholds": [
+        {
+            "metric": "Two-sample Kolmogorov-Smirnov test (ks_2samp)",
+            "threshold_value": 0.05,
+            "parameter_name": "alpha",
+            "source_data": "training reference distribution",
+            "selection_method": "Standard Neyman-Pearson statistical hypothesis significance level (Type I error bound 5%)",
+            "seed": 42
+        },
+        {
+            "metric": "Drifting Feature Ratio",
+            "threshold_value": 0.2,
+            "parameter_name": "threshold_ratio",
+            "source_data": "training reference vs. validation development cohort",
+            "selection_method": "Institutional tolerance: system-level adaptation triggered if >= 20% of monitored continuous features reject H0",
+            "seed": 42
+        },
+        {
+            "metric": "Population Stability Index (PSI)",
+            "threshold_value": 0.15,
+            "parameter_name": "psi_threshold",
+            "source_data": "10-bin reference quantiles precomputed on train.csv with Laplace smoothing (eps=1e-4)",
+            "selection_method": "Standard credit risk / regulatory benchmark: PSI < 0.10 stable, 0.10-0.25 moderate drift, > 0.25 severe shift (threshold 0.15 conservatively triggers proactive adaptation)",
+            "seed": 42
+        },
+        {
+            "metric": "Core Academic Severe Shift (Normalized Wasserstein)",
+            "threshold_value": 0.3,
+            "parameter_name": "norm_wasserstein_threshold",
+            "source_data": "Core academic indicators (previous_sgpa, previous_cgpa, attendance, backlogs)",
+            "selection_method": "Domain-specific rule: triggers adaptation if core GPA/backlog shifts by >= 0.30 standard deviations with p < 0.001",
+            "seed": 42
+        }
+    ]
+}

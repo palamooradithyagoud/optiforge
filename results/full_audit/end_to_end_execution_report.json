@@ -7,9 +7,9 @@
     "stage_5_phase4_adaptation": "FUNCTIONAL (src/adaptation/reoptimizer.py, src/adaptation/calibration.py, src/adaptation/evaluate_recovery.py)"
   },
   "centralized_orchestrator": {
-    "has_run_pipeline_script": false,
-    "orchestration_type": "Modular CLI entry points with interdependent file interfaces",
-    "recommendation": "Implement unified run_pipeline.py orchestrator for seamless execution."
+    "has_run_pipeline_script": true,
+    "orchestration_type": "Unified run_pipeline.py CLI orchestrator with support for phases 1, 2, 3, 4, all, and frozen final-test",
+    "recommendation": "Pipeline fully unified and reproducible."
   },
   "data_flow_connectivity": "VERIFIED (Artifact outputs from upstream phases feed cleanly into downstream modules)"
 }

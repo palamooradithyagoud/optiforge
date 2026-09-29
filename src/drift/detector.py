@@ -261,12 +261,13 @@ def run_drift_analysis(
     
     if datasets is None:
         from src.drift.scenarios import generate_all_scenarios
-        datasets = {"clean_test": pd.read_csv("data/processed/test.csv")}
-        ood_dict = generate_all_scenarios()
+        datasets = {"clean_baseline": pd.read_csv("data/processed/val.csv")}
+        ood_dict = generate_all_scenarios(reference_csv_path="data/processed/val.csv")
         datasets.update(ood_dict)
         
     all_decisions: Dict[str, Any] = {}
     feature_shift_matrix: Dict[str, Any] = {}
+    tabular_results: List[Dict[str, Any]] = []
     
     print("=" * 70)
     print("RUNNING STATISTICAL DRIFT DETECTOR ON EVALUATION DATASETS")
@@ -292,17 +293,79 @@ def run_drift_analysis(
             "psi_values": decision["psi_values"]
         }
         
+        tabular_results.append({
+            "scenario_id": scen_name,
+            "drift_detected": decision["drift_detected"],
+            "action": decision["action"],
+            "drift_score": decision["drift_score"],
+            "mean_psi": decision["mean_psi"],
+            "num_drifting_features": decision["num_drifting_features"],
+            "drift_feature_ratio": decision["drift_feature_ratio"],
+            "num_features_evaluated": decision["num_features_evaluated"]
+        })
+        
         status_flag = "[!] DRIFT DETECTED -> TRIGGER_ADAPTATION" if decision["drift_detected"] else "[PASS] STABLE -> PROCEED_TO_PREDICT"
         print(f"{scen_name:38s} | Ratio: {decision['drift_feature_ratio']:.2f} ({decision['num_drifting_features']:2d}/21) | PSI: {decision['mean_psi']:.3f} | {status_flag}")
         
-    # Persist JSON artifacts
+    # Persist JSON and CSV artifacts
     metrics_path = os.path.join(output_dir, "drift_metrics.json")
     shift_report_path = os.path.join(output_dir, "feature_shift_report.json")
+    csv_results_path = os.path.join(output_dir, "drift_detection_results.csv")
+    provenance_path = os.path.join(output_dir, "threshold_provenance.json")
     
     save_json(all_decisions, metrics_path)
     save_json(feature_shift_matrix, shift_report_path)
+    pd.DataFrame(tabular_results).to_csv(csv_results_path, index=False)
+    
+    # Save threshold provenance (Part 11)
+    threshold_provenance = {
+        "metadata": {
+            "title": "Drift Detector Threshold Provenance Report",
+            "source_reference_data": "data/processed/train.csv (300 students, 600 samples)",
+            "validation_development_cohort": "data/processed/val.csv (100 students, 200 samples)",
+            "final_test_status": "EXCLUDED (Untouched, zero leakage)",
+            "seed": 42
+        },
+        "thresholds": [
+            {
+                "metric": "Two-sample Kolmogorov-Smirnov test (ks_2samp)",
+                "threshold_value": 0.05,
+                "parameter_name": "alpha",
+                "source_data": "training reference distribution",
+                "selection_method": "Standard Neyman-Pearson statistical hypothesis significance level (Type I error bound 5%)",
+                "seed": 42
+            },
+            {
+                "metric": "Drifting Feature Ratio",
+                "threshold_value": 0.20,
+                "parameter_name": "threshold_ratio",
+                "source_data": "training reference vs. validation development cohort",
+                "selection_method": "Institutional tolerance: system-level adaptation triggered if >= 20% of monitored continuous features reject H0",
+                "seed": 42
+            },
+            {
+                "metric": "Population Stability Index (PSI)",
+                "threshold_value": 0.15,
+                "parameter_name": "psi_threshold",
+                "source_data": "10-bin reference quantiles precomputed on train.csv with Laplace smoothing (eps=1e-4)",
+                "selection_method": "Standard credit risk / regulatory benchmark: PSI < 0.10 stable, 0.10-0.25 moderate drift, > 0.25 severe shift (threshold 0.15 conservatively triggers proactive adaptation)",
+                "seed": 42
+            },
+            {
+                "metric": "Core Academic Severe Shift (Normalized Wasserstein)",
+                "threshold_value": 0.30,
+                "parameter_name": "norm_wasserstein_threshold",
+                "source_data": "Core academic indicators (previous_sgpa, previous_cgpa, attendance, backlogs)",
+                "selection_method": "Domain-specific rule: triggers adaptation if core GPA/backlog shifts by >= 0.30 standard deviations with p < 0.001",
+                "seed": 42
+            }
+        ]
+    }
+    save_json(threshold_provenance, provenance_path)
     
     print(f"\nSaved drift metrics to: {metrics_path}")
+    print(f"Saved drift detection results CSV to: {csv_results_path}")
+    print(f"Saved threshold provenance report to: {provenance_path}")
     print(f"Saved feature shift report to: {shift_report_path}")
     print("=" * 70 + "\n")
     

@@ -304,70 +304,95 @@ def generate_compound_stress(df: pd.DataFrame) -> pd.DataFrame:
     return perturbed
 
 
-def generate_all_scenarios(
-    test_csv_path: str = "data/processed/test.csv",
-    output_dir: str = "results/drift/datasets",
+def generate_drift_scenario(
+    reference_df: pd.DataFrame,
+    scenario_config: Dict[str, Any],
     seed: int = 42
+) -> pd.DataFrame:
+    """
+    Generate a single synthetic drift scenario from explicitly supplied reference dataframe.
+    Guarantees that target labels and student IDs are preserved without data leakage.
+    """
+    param_type = scenario_config["parameter"]
+    sev = scenario_config["severity"]
+    
+    if param_type == "scale_down":
+        scen_df = generate_attendance_drift(reference_df, rate=float(sev))
+    elif param_type == "grade_shift":
+        scen_df = generate_academic_drift(reference_df, shift=float(sev))
+    elif param_type == "backlog_increment":
+        scen_df = generate_backlog_surge(reference_df, surge=int(sev))
+    elif param_type == "multivariate_shift":
+        scen_df = generate_cohort_shift(reference_df, seed=seed)
+    elif param_type == "compound":
+        scen_df = generate_compound_stress(reference_df)
+    else:
+        raise ValueError(f"Unknown scenario parameter type: {param_type}")
+        
+    target_col = "next_semester_sgpa"
+    assert len(scen_df) == len(reference_df), "Row count mismatch in scenario generation"
+    assert list(scen_df.columns) == list(reference_df.columns), "Column mismatch in scenario generation"
+    assert scen_df[target_col].equals(reference_df[target_col]), "Target altered in scenario generation!"
+    assert scen_df.isna().sum().sum() == 0, "NaNs detected in scenario generation!"
+    return scen_df
+
+
+def generate_all_scenarios(
+    reference_df: Optional[pd.DataFrame] = None,
+    reference_csv_path: str = "data/processed/val.csv",
+    output_dir: str = "results/drift/datasets",
+    seed: int = 42,
+    **kwargs
 ) -> Dict[str, pd.DataFrame]:
     """
-    Generate all 12 controlled OOD datasets from the frozen test split.
+    Generate all 12 controlled OOD datasets from the safe development cohort (val.csv).
+    The final test set is strictly excluded and preserved for one-time evaluation.
     Saves each dataset to CSV in output_dir and returns a dictionary of dataframes.
     """
     set_seed(seed, deterministic=True)
     os.makedirs(output_dir, exist_ok=True)
     
-    if not os.path.exists(test_csv_path):
-        raise FileNotFoundError(f"Clean test dataset not found at: {test_csv_path}")
+    # Handle backwards-compatible argument if passed
+    if "test_csv_path" in kwargs and reference_df is None:
+        csv_path = kwargs["test_csv_path"]
+    else:
+        csv_path = reference_csv_path
         
-    clean_test_df = pd.read_csv(test_csv_path)
+    if reference_df is None:
+        if not os.path.exists(csv_path):
+            raise FileNotFoundError(f"Reference development dataset not found at: {csv_path}")
+        clean_dev_df = pd.read_csv(csv_path)
+    else:
+        clean_dev_df = reference_df.copy()
+        
     target_col = "next_semester_sgpa"
-    if target_col not in clean_test_df.columns:
-        raise ValueError(f"Target column '{target_col}' missing from clean test dataset.")
+    if target_col not in clean_dev_df.columns:
+        raise ValueError(f"Target column '{target_col}' missing from development dataset.")
         
     generated_datasets: Dict[str, pd.DataFrame] = {}
     
-    print(f"Generating Phase 3 OOD Datasets from {test_csv_path} (N={len(clean_test_df)})...")
+    print(f"Generating Phase 3 OOD Datasets from development cohort (N={len(clean_dev_df)})...")
     
     for cfg in SCENARIO_CONFIGS:
         scen_id = cfg["id"]
-        param_type = cfg["parameter"]
-        sev = cfg["severity"]
         out_filename = cfg["filename"]
         out_path = os.path.join(output_dir, out_filename)
         
-        if param_type == "scale_down":
-            scen_df = generate_attendance_drift(clean_test_df, rate=float(sev))
-        elif param_type == "grade_shift":
-            scen_df = generate_academic_drift(clean_test_df, shift=float(sev))
-        elif param_type == "backlog_increment":
-            scen_df = generate_backlog_surge(clean_test_df, surge=int(sev))
-        elif param_type == "multivariate_shift":
-            scen_df = generate_cohort_shift(clean_test_df, seed=seed)
-        elif param_type == "compound":
-            scen_df = generate_compound_stress(clean_test_df)
-        else:
-            raise ValueError(f"Unknown scenario parameter type: {param_type}")
-            
-        # Strict validation checks
-        assert len(scen_df) == len(clean_test_df), f"Row count mismatch in {scen_id}"
-        assert list(scen_df.columns) == list(clean_test_df.columns), f"Column mismatch in {scen_id}"
-        assert scen_df[target_col].equals(clean_test_df[target_col]), f"Target altered in {scen_id}!"
-        assert scen_df.isna().sum().sum() == 0, f"NaNs detected in {scen_id}!"
-        
-        # Save to disk
+        scen_df = generate_drift_scenario(clean_dev_df, cfg, seed=seed)
         scen_df.to_csv(out_path, index=False)
         generated_datasets[scen_id] = scen_df
         print(f"  [OK] [{scen_id}] Saved {len(scen_df)} samples to {out_path}")
         
-    print(f"Successfully generated and validated {len(generated_datasets)} OOD datasets.\n")
+    print(f"Successfully generated and validated {len(generated_datasets)} development OOD datasets.\n")
     return generated_datasets
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate Phase 3 OOD datasets")
-    parser.add_argument("--test-csv", type=str, default="data/processed/test.csv")
+    parser = argparse.ArgumentParser(description="Generate Phase 3 OOD datasets from development cohort")
+    parser.add_argument("--reference-csv", type=str, default="data/processed/val.csv", help="Development cohort CSV (default: val.csv)")
     parser.add_argument("--output-dir", type=str, default="results/drift/datasets")
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
     
-    generate_all_scenarios(test_csv_path=args.test_csv, output_dir=args.output_dir, seed=args.seed)
+    generate_all_scenarios(reference_csv_path=args.reference_csv, output_dir=args.output_dir, seed=args.seed)
+

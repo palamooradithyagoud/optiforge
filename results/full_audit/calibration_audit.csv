@@ -1,3 +1,4 @@
 calibration_type,pre_calibration_bias,post_calibration_bias,slope,intercept,status,empirical_coverage,mean_interval_width,target_coverage,subgroup
-Continuous Affine Recalibration,0.2859,0.2859,0.5,3.6743,FAIL,,,,
-Overall Split Conformal Prediction (90% target),,,,,PASS (Coverage Valid),90.5%,3.4896,90.0%,All Students
+Continuous Affine Recalibration (Held-Out Recovery),-0.2379,0.0171,0.7721,1.9211,PASS (|Bias| < 0.05),,,,
+Overall Split Conformal Prediction (Held-Out Recovery),,,,,PASS (Coverage Valid),87.0%,3.3249,90.0%,All Held-Out Students
+Subgroup Stratified Conformal (Held-Out),,,,,PASS,87.0%,3.3249,90.0%,high_risk (N=100)

@@ -56,8 +56,8 @@ class OODEvaluator:
             "activation": activation
         }
         
-        # Dummy transform to verify input dimensionality
-        dummy_df = pd.read_csv("data/processed/test.csv").head(2)
+        # Dummy transform to verify input dimensionality using development cohort
+        dummy_df = pd.read_csv("data/processed/val.csv").head(2)
         input_dim = self.pipeline.transform(dummy_df).shape[1]
         
         self.model = build_model(model_cfg, input_dim=input_dim)
@@ -92,36 +92,39 @@ class OODEvaluator:
 
 
 def run_ood_evaluation(
-    test_csv_path: str = "data/processed/test.csv",
+    dev_csv_path: str = "data/processed/val.csv",
     datasets_dir: str = "results/drift/datasets",
     output_dir: str = "results/drift",
-    seed: int = 42
+    seed: int = 42,
+    **kwargs
 ) -> pd.DataFrame:
     """
-    Run complete evaluation across clean test baseline and all 12 OOD datasets.
+    Run complete evaluation across clean development baseline (val.csv) and all 12 OOD datasets.
     Computes performance degradation and exports CSV and Markdown reports.
     """
     set_seed(seed, deterministic=True)
     os.makedirs(output_dir, exist_ok=True)
     
+    csv_path = kwargs.get("test_csv_path", dev_csv_path)
+    
     # Ensure datasets exist
     if not os.path.exists(datasets_dir) or len(os.listdir(datasets_dir)) < 12:
-        generate_all_scenarios(test_csv_path=test_csv_path, output_dir=datasets_dir, seed=seed)
+        generate_all_scenarios(reference_csv_path=csv_path, output_dir=datasets_dir, seed=seed)
         
     evaluator = OODEvaluator()
-    clean_test_df = pd.read_csv(test_csv_path)
+    clean_dev_df = pd.read_csv(csv_path)
     
     print("=" * 75)
-    print("EVALUATING FROZEN PHASE 2 MODEL ON CLEAN TEST & OOD STRESS SCENARIOS")
+    print("EVALUATING FROZEN PHASE 2 MODEL ON CLEAN DEVELOPMENT & OOD STRESS SCENARIOS")
     print("=" * 75)
     
-    # 1. Clean Test Baseline Evaluation
-    clean_res = evaluator.evaluate_cohort(clean_test_df)
+    # 1. Clean Development Baseline Evaluation
+    clean_res = evaluator.evaluate_cohort(clean_dev_df)
     clean_mae = clean_res["mae"]
     clean_rmse = clean_res["rmse"]
     clean_r2 = clean_res["r2"]
     
-    print(f"Clean Baseline   | MAE: {clean_mae:.4f} | RMSE: {clean_rmse:.4f} | R2: {clean_r2:.4f} | Bias: {clean_res['bias']:+.4f}")
+    print(f"Clean Dev Baseline | MAE: {clean_mae:.4f} | RMSE: {clean_rmse:.4f} | R2: {clean_r2:.4f} | Bias: {clean_res['bias']:+.4f}")
     print("-" * 75)
     
     results_rows: List[Dict[str, Any]] = []
@@ -130,7 +133,7 @@ def run_ood_evaluation(
     results_rows.append({
         "scenario_id": "clean_baseline",
         "family": "Baseline",
-        "scenario_name": "Clean Test Baseline (Untouched)",
+        "scenario_name": "Clean Development Baseline (Untouched Val Cohort)",
         "parameter": "none",
         "severity": 0.0,
         "mae": clean_mae,
@@ -285,10 +288,10 @@ def generate_robustness_report(
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Evaluate model on OOD datasets")
-    parser.add_argument("--test-csv", type=str, default="data/processed/test.csv")
+    parser = argparse.ArgumentParser(description="Evaluate model on development OOD datasets")
+    parser.add_argument("--dev-csv", type=str, default="data/processed/val.csv", help="Development baseline cohort CSV")
     parser.add_argument("--datasets-dir", type=str, default="results/drift/datasets")
     parser.add_argument("--output-dir", type=str, default="results/drift")
     args = parser.parse_args()
     
-    run_ood_evaluation(test_csv_path=args.test_csv, datasets_dir=args.datasets_dir, output_dir=args.output_dir)
+    run_ood_evaluation(dev_csv_path=args.dev_csv, datasets_dir=args.datasets_dir, output_dir=args.output_dir)

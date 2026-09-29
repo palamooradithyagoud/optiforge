@@ -1,47 +1,47 @@
-[2026-09-30 03:30:10] ================================================================================
-[2026-09-30 03:30:10] STARTING FULL PHASE 1-4 COMPREHENSIVE ML/QA AUDIT
-[2026-09-30 03:30:10] ================================================================================
-[2026-09-30 03:30:10] 
+[2026-09-30 04:00:02] ================================================================================
+[2026-09-30 04:00:02] STARTING FULL PHASE 1-4 COMPREHENSIVE ML/QA AUDIT
+[2026-09-30 04:00:02] ================================================================================
+[2026-09-30 04:00:02] 
 [PART A] Auditing Repository Inventory & Module Structure...
-[2026-09-30 03:30:10]   [OK] Saved repository inventory (105 items audited).
-[2026-09-30 03:30:10] 
+[2026-09-30 04:00:02]   [OK] Saved repository inventory (130 items audited).
+[2026-09-30 04:00:02] 
 [PART B] Auditing Phase 1 Data Pipeline, Features, Cohorts, and Baseline...
-[2026-09-30 03:30:10]   [OK] Raw Rows: 1500, Students: 500, Semesters: [1, 2, 3]
-[2026-09-30 03:30:10]   [OK] Cohort Counts: Train=300, Val=100, Test=100
-[2026-09-30 03:30:10]   [OK] Overlaps: Train-Val=0, Train-Test=0, Val-Test=0
-[2026-09-30 03:30:10]   [OK] Features: 22 engineered inputs
-[2026-09-30 03:30:10]   [OK] Reproduced Phase 1 MAE: 0.8773 (Expected: 0.8773, Match: True)
-[2026-09-30 03:30:10]   [OK] Reproduced Naive MAE:   0.8159 (Expected: 0.8159)
-[2026-09-30 03:30:10] 
+[2026-09-30 04:00:02]   [OK] Raw Rows: 1500, Students: 500, Semesters: [1, 2, 3]
+[2026-09-30 04:00:02]   [OK] Cohort Counts: Train=300, Val=100, Test=100
+[2026-09-30 04:00:02]   [OK] Overlaps: Train-Val=0, Train-Test=0, Val-Test=0
+[2026-09-30 04:00:02]   [OK] Features: 22 engineered inputs
+[2026-09-30 04:00:02]   [OK] Reproduced Phase 1 MAE: 0.8773 (Expected: 0.8773, Match: True)
+[2026-09-30 04:00:02]   [OK] Reproduced Naive MAE:   0.8159 (Expected: 0.8159)
+[2026-09-30 04:00:02] 
 [PART C] Auditing Phase 2 NSGA-II Optimizer, Objectives & Selected Model...
-[2026-09-30 03:30:10]   [OK] Selected Genome: [32, 16] (tanh), Params: 1281
-[2026-09-30 03:30:10]   [OK] Reproduced NSGA-II Test MAE: 0.8359 (Expected: 0.8359, Match: True)
-[2026-09-30 03:30:10]   [OK] Metric Delta vs Phase 1: MAE -0.0414 (-4.72%)
-[2026-09-30 03:30:10]   [NOTE] Naive Mean MAE (0.8159) remains lower than deep models on clean test set.
-[2026-09-30 03:30:10] 
+[2026-09-30 04:00:02]   [OK] Selected Genome: [32, 16] (tanh), Params: 1281
+[2026-09-30 04:00:02]   [OK] Reproduced NSGA-II Test MAE: 0.8359 (Expected: 0.8359, Match: True)
+[2026-09-30 04:00:02]   [OK] Metric Delta vs Phase 1: MAE -0.0414 (-4.72%)
+[2026-09-30 04:00:02]   [NOTE] Naive Mean MAE (0.8159) remains lower than deep models on clean test set.
+[2026-09-30 04:00:02] 
 [PART D] Auditing Phase 3 OOD Scenarios & Statistical Drift Detection...
-[2026-09-30 03:30:10]   [OK] Audited 12 drift scenarios. Saved drift_scenario_audit.csv
-[2026-09-30 03:30:10]   [OK] Re-evaluated unadapted model across all 12 OOD scenarios.
-[2026-09-30 03:30:10]   [OK] Drift Detection Matrix: TP=11, TN=1, FP=1, FN=0. Saved drift_detection_audit.csv
-[2026-09-30 03:30:10] 
+[2026-09-30 04:00:02]   [OK] Audited 12 drift scenarios. Saved drift_scenario_audit.csv
+[2026-09-30 04:00:02]   [OK] Re-evaluated unadapted model across all 12 OOD scenarios.
+[2026-09-30 04:00:02]   [OK] Drift Detection Matrix: TP=11, TN=1, FP=1, FN=0. Saved drift_detection_audit.csv
+[2026-09-30 04:00:02] 
 [PART E, F, G] Auditing Phase 4 Adaptive Re-Optimization, Calibration & Explainability...
-[2026-09-30 03:30:10]   [OK] Scenario E: Unadapted Bias=+0.1618 -> Adapted Bias=+0.2859 (Bias Reduction: -0.1241)
-[2026-09-30 03:30:10]   [OK] Conformal Coverage: 90.5%, Mean Width: 3.4896. Saved calibration_audit.csv
-[2026-09-30 03:30:11]   [OK] Integrated Gradients Completeness Gap: 0.015612 (< 0.05: True). Top Feature: backlog_change
-[2026-09-30 03:30:11] 
+[2026-09-30 04:00:02]   [OK] Held-Out Recovery: Unadapted Bias=+0.2501 -> Adapted Bias=-0.2379
+[2026-09-30 04:00:02]   [OK] Held-Out Conformal Coverage: 87.0%, Mean Width: 3.3249, Bias: 0.0171. Saved calibration_audit.csv
+[2026-09-30 04:00:03]   [OK] Integrated Gradients Completeness Gap: 0.000126 (< 0.05: True). Top Feature: backlog_change
+[2026-09-30 04:00:03] 
 [PART J] Performing Adversarial Data Leakage & Methodological Audit...
-[2026-09-30 03:30:11]   [AUDIT FINDING] Saved leakage_audit.csv (28 occurrences audited).
-[2026-09-30 03:30:11] 
+[2026-09-30 04:00:03]   [OK] Saved leakage_audit.csv (27 verified entries, 0 leakage violations).
+[2026-09-30 04:00:03] 
 [PART K] Auditing Deterministic Reproducibility (Run A vs Run B vs Run C)...
-[2026-09-30 03:30:11]   [OK] Determinism verified: Run A == Run B (diff=0.0000e+00), Run A != Run C (diff=0.0000)
-[2026-09-30 03:30:11] 
+[2026-09-30 04:00:03]   [OK] Determinism verified: Run A == Run B (diff=0.0000e+00), Run A != Run C (diff=0.0000)
+[2026-09-30 04:00:03] 
 [PART I] Auditing Artifact Consistency & Traceability...
-[2026-09-30 03:30:11]   [OK] Artifact consistency verified (10/10 artifacts present).
-[2026-09-30 03:30:11] 
+[2026-09-30 04:00:03]   [OK] Artifact consistency verified (10/10 artifacts present).
+[2026-09-30 04:00:03] 
 [PART H] Auditing End-to-End Pipeline Connectivity...
-[2026-09-30 03:30:11] 
+[2026-09-30 04:00:03] 
 [PART L] Building Competition Requirement Matrix...
-[2026-09-30 03:30:11]   [OK] Saved competition_requirement_matrix.csv
-[2026-09-30 03:30:11]   [OK] Saved phase_status.csv
-[2026-09-30 03:30:11] 
+[2026-09-30 04:00:03]   [OK] Saved competition_requirement_matrix.csv
+[2026-09-30 04:00:03]   [OK] Saved phase_status.csv
+[2026-09-30 04:00:03] 
 Generating Master Audit Markdown and JSON Reports...

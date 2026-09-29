@@ -1,0 +1,2 @@
+scenario,generations,population_size,adapted_pareto_front_size,selected_genome_hidden_dims,selected_activation,adapt_val_mae,adapt_val_rmse,adapt_val_r2,best_epoch
+scenario_e_compound_stress.csv,5,16,16,[128],tanh,0.6425,0.8703,0.0294,26

@@ -155,24 +155,24 @@ def plot_drift_vs_degradation(
 
 def plot_feature_distribution_shift(
     train_csv_path: str = "data/processed/train.csv",
-    test_csv_path: str = "data/processed/test.csv",
+    dev_csv_path: str = "data/processed/val.csv",
     drifted_csv_path: str = "results/drift/datasets/scenario_e_compound_stress.csv",
     output_path: str = "results/drift/feature_distribution_shift.png"
 ):
     """
     Generate symmetric 2x2 grid comparing feature probability distributions:
     - Train (Reference Cohort)
-    - Clean Test (Untouched Held-Out Cohort)
+    - Clean Development Baseline (Untouched Val Cohort)
     - Scenario E (Compound Extreme Stress Cohort)
     """
     setup_plot_style()
     train_df = pd.read_csv(train_csv_path)
-    test_df = pd.read_csv(test_csv_path)
+    dev_df = pd.read_csv(dev_csv_path)
     drift_df = pd.read_csv(drifted_csv_path)
     
     fig, axes = plt.subplots(2, 2, figsize=(14, 11), constrained_layout=True)
     fig.suptitle(
-        "Empirical Feature Distribution Shifts (Train vs. Clean Test vs. Drifted Cohort)",
+        "Empirical Feature Distribution Shifts (Train vs. Clean Dev vs. Drifted Cohort)",
         fontsize=16,
         fontweight="bold",
         y=1.02
@@ -187,7 +187,7 @@ def plot_feature_distribution_shift(
     
     colors = {
         "Train": "#1f77b4",       # Blue
-        "Clean Test": "#2ca02c",  # Green
+        "Clean Dev": "#2ca02c",   # Green
         "Drifted": "#d62728"      # Coral Red
     }
     
@@ -195,13 +195,13 @@ def plot_feature_distribution_shift(
         ax = axes[idx // 2, idx % 2]
         
         train_vals = train_df[feat].dropna().values
-        test_vals = test_df[feat].dropna().values
+        dev_vals = dev_df[feat].dropna().values
         drift_vals = drift_df[feat].dropna().values
         
         # Histograms with alpha transparency
         bins = np.linspace(xlim[0], xlim[1], 25)
         ax.hist(train_vals, bins=bins, density=True, alpha=0.35, color=colors["Train"], label="Train Cohort (N=600)")
-        ax.hist(test_vals, bins=bins, density=True, alpha=0.35, color=colors["Clean Test"], label="Clean Test Cohort (N=200)")
+        ax.hist(dev_vals, bins=bins, density=True, alpha=0.35, color=colors["Clean Dev"], label="Clean Dev Cohort (N=200)")
         ax.hist(drift_vals, bins=bins, density=True, alpha=0.35, color=colors["Drifted"], label="Compound Stress (N=200)")
         
         # Smooth KDE curves
@@ -213,8 +213,8 @@ def plot_feature_distribution_shift(
             pass
             
         try:
-            kde_test = gaussian_kde(test_vals)
-            ax.plot(x_eval, kde_test(x_eval), color=colors["Clean Test"], linewidth=2.2)
+            kde_dev = gaussian_kde(dev_vals)
+            ax.plot(x_eval, kde_dev(x_eval), color=colors["Clean Dev"], linewidth=2.2)
         except Exception:
             pass
             

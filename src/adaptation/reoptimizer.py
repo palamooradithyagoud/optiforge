@@ -328,8 +328,50 @@ def retrain_adapted_model(
     }
 
 
+def split_cohort_student_level(
+    df: pd.DataFrame,
+    adaptation_ratio: float = 0.50,
+    seed: int = 42
+) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """
+    Split drifted development cohort strictly at the student level into disjoint sets:
+    1. Adaptation Cohort (50% of students):
+       - Train subset (70% of adaptation students)
+       - Calibration subset (30% of adaptation students)
+    2. Held-Out Recovery Cohort (50% of students):
+       - Never seen during adaptation search or calibration fitting.
+    """
+    unique_students = np.array(sorted(df["student_id"].unique()))
+    rng = np.random.default_rng(seed)
+    permuted = rng.permutation(unique_students)
+    
+    n_total_students = len(unique_students)
+    n_adapt_students = int(round(adaptation_ratio * n_total_students))
+    
+    adapt_student_ids = set(permuted[:n_adapt_students])
+    recovery_student_ids = set(permuted[n_adapt_students:])
+    
+    adapt_df = df[df["student_id"].isin(adapt_student_ids)].copy().reset_index(drop=True)
+    recovery_df = df[df["student_id"].isin(recovery_student_ids)].copy().reset_index(drop=True)
+    
+    # Sub-split adaptation students into train (70%) and calibration (30%)
+    adapt_students_list = sorted(list(adapt_student_ids))
+    perm_adapt = rng.permutation(adapt_students_list)
+    n_train_students = int(round(0.70 * len(adapt_students_list)))
+    
+    train_ids = set(perm_adapt[:n_train_students])
+    calib_ids = set(perm_adapt[n_train_students:])
+    
+    adapt_train_df = adapt_df[adapt_df["student_id"].isin(train_ids)].copy().reset_index(drop=True)
+    adapt_calib_df = adapt_df[adapt_df["student_id"].isin(calib_ids)].copy().reset_index(drop=True)
+    
+    return adapt_train_df, adapt_calib_df, recovery_df
+
+
 def run_adaptation_reoptimization(
     drift_scenario_csv: str = "results/drift/datasets/scenario_e_compound_stress.csv",
+    adapt_train_df: Optional[pd.DataFrame] = None,
+    adapt_val_df: Optional[pd.DataFrame] = None,
     models_output_dir: str = "models/adaptation",
     results_output_dir: str = "results/adaptation",
     generations: int = 5,
@@ -339,6 +381,7 @@ def run_adaptation_reoptimization(
     """
     Execute full warm-started Phase 4 adaptive re-optimization.
     Saves adapted Pareto front, selected checkpoint, and optimization summary.
+    Guarantees recovery cohort never participates in optimization.
     """
     os.makedirs(models_output_dir, exist_ok=True)
     os.makedirs(results_output_dir, exist_ok=True)
@@ -348,15 +391,20 @@ def run_adaptation_reoptimization(
     seed_genomes = load_pareto_genomes(pareto_csv)
     
     # 2. Prepare adaptation train and validation splits from drifted cohort
-    drifted_df = pd.read_csv(drift_scenario_csv)
-    n_samples = len(drifted_df)
-    # Split 60% adaptation-train, 40% adaptation-val
-    rng = np.random.default_rng(seed)
-    indices = rng.permutation(n_samples)
-    split_pt = int(0.60 * n_samples)
-    adapt_train_df = drifted_df.iloc[indices[:split_pt]].copy()
-    adapt_val_df = drifted_df.iloc[indices[split_pt:]].copy()
-    
+    if adapt_train_df is None or adapt_val_df is None:
+        drifted_df = pd.read_csv(drift_scenario_csv)
+        adapt_train_df, adapt_val_df, recovery_df = split_cohort_student_level(drifted_df, seed=seed)
+        
+        # Save adaptation split
+        split_records = []
+        for s_id in adapt_train_df["student_id"].unique():
+            split_records.append({"student_id": s_id, "scenario": os.path.basename(drift_scenario_csv), "partition": "adaptation_train"})
+        for s_id in adapt_val_df["student_id"].unique():
+            split_records.append({"student_id": s_id, "scenario": os.path.basename(drift_scenario_csv), "partition": "adaptation_calibration"})
+        for s_id in recovery_df["student_id"].unique():
+            split_records.append({"student_id": s_id, "scenario": os.path.basename(drift_scenario_csv), "partition": "recovery"})
+        pd.DataFrame(split_records).to_csv(os.path.join(results_output_dir, "adaptation_split.csv"), index=False)
+        
     feature_pipeline = FeaturePipeline.load("models/feature_pipeline.pkl")
     
     # 3. Setup evaluator
@@ -443,6 +491,23 @@ def run_adaptation_reoptimization(
     summary_path = os.path.join(results_output_dir, "reoptimization_summary.json")
     save_json(summary, summary_path)
     print(f"Re-optimization summary saved to: {summary_path}\n")
+    
+    # Save adaptation_results.csv (Part 13)
+    adapt_results_row = [{
+        "scenario": os.path.basename(drift_scenario_csv),
+        "generations": generations,
+        "population_size": population_size,
+        "adapted_pareto_front_size": len(adapted_pf),
+        "selected_genome_hidden_dims": str(selected_ind.genome.hidden_dims),
+        "selected_activation": selected_ind.genome.activation,
+        "adapt_val_mae": train_summary["validation_mae"],
+        "adapt_val_rmse": train_summary["validation_rmse"],
+        "adapt_val_r2": train_summary["validation_r2"],
+        "best_epoch": train_summary["best_epoch"]
+    }]
+    pd.DataFrame(adapt_results_row).to_csv(os.path.join(results_output_dir, "adaptation_results.csv"), index=False)
+    
+    return summary
     
     return summary
 

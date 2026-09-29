@@ -51,7 +51,7 @@
     "file_path": "src/adaptation/evaluate_recovery.py",
     "directory": "src",
     "extension": ".py",
-    "size_bytes": 14068,
+    "size_bytes": 17149,
     "status": "IMPLEMENTED",
     "notes": "Core functional component"
   },
@@ -67,7 +67,7 @@
     "file_path": "src/adaptation/reoptimizer.py",
     "directory": "src",
     "extension": ".py",
-    "size_bytes": 18403,
+    "size_bytes": 21774,
     "status": "IMPLEMENTED",
     "notes": "Core functional component"
   },
@@ -91,7 +91,7 @@
     "file_path": "src/drift/detector.py",
     "directory": "src",
     "extension": ".py",
-    "size_bytes": 12933,
+    "size_bytes": 16420,
     "status": "IMPLEMENTED",
     "notes": "Core functional component"
   },
@@ -99,7 +99,7 @@
     "file_path": "src/drift/evaluate_ood.py",
     "directory": "src",
     "extension": ".py",
-    "size_bytes": 15311,
+    "size_bytes": 15504,
     "status": "IMPLEMENTED",
     "notes": "Core functional component"
   },
@@ -107,7 +107,7 @@
     "file_path": "src/drift/scenarios.py",
     "directory": "src",
     "extension": ".py",
-    "size_bytes": 16289,
+    "size_bytes": 17260,
     "status": "IMPLEMENTED",
     "notes": "Core functional component"
   },
@@ -115,7 +115,7 @@
     "file_path": "src/drift/visualize_drift.py",
     "directory": "src",
     "extension": ".py",
-    "size_bytes": 16627,
+    "size_bytes": 16624,
     "status": "IMPLEMENTED",
     "notes": "Core functional component"
   },
@@ -219,7 +219,7 @@
     "file_path": "tests/audit_full_phase1_4.py",
     "directory": "tests",
     "extension": ".py",
-    "size_bytes": 50307,
+    "size_bytes": 50839,
     "status": "IMPLEMENTED",
     "notes": "Core functional component"
   },
@@ -228,6 +228,14 @@
     "directory": "tests",
     "extension": ".py",
     "size_bytes": 50659,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "tests/test_no_test_contamination.py",
+    "directory": "tests",
+    "extension": ".py",
+    "size_bytes": 12995,
     "status": "IMPLEMENTED",
     "notes": "Core functional component"
   },
@@ -243,7 +251,7 @@
     "file_path": "tests/test_phase3.py",
     "directory": "tests",
     "extension": ".py",
-    "size_bytes": 15219,
+    "size_bytes": 15378,
     "status": "IMPLEMENTED",
     "notes": "Core functional component"
   },
@@ -307,7 +315,7 @@
     "file_path": "models/adaptation/adapted_model.pt",
     "directory": "models",
     "extension": ".pt",
-    "size_bytes": 8861,
+    "size_bytes": 15385,
     "status": "IMPLEMENTED",
     "notes": "Trained model checkpoint / serialized pipeline"
   },
@@ -352,10 +360,42 @@
     "notes": "Structured artifact / benchmark data"
   },
   {
+    "file_path": "results/adaptation/adaptation_results.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 240,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/adaptation/adaptation_split.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 5821,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/adaptation/adaptation_summary.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 3048,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
     "file_path": "results/adaptation/adapted_pareto_front.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 2900,
+    "size_bytes": 2941,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/adaptation/calibration_results.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 1506,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -387,7 +427,7 @@
     "file_path": "results/adaptation/recovery_benchmark.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 718,
+    "size_bytes": 790,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -395,7 +435,7 @@
     "file_path": "results/adaptation/recovery_metrics.json",
     "directory": "results",
     "extension": ".json",
-    "size_bytes": 2620,
+    "size_bytes": 3048,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -403,9 +443,17 @@
     "file_path": "results/adaptation/recovery_report.md",
     "directory": "results",
     "extension": ".md",
-    "size_bytes": 3063,
+    "size_bytes": 4367,
     "status": "IMPLEMENTED",
     "notes": "Documentation / summary report"
+  },
+  {
+    "file_path": "results/adaptation/recovery_results.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 1617,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
   },
   {
     "file_path": "results/adaptation/recovery_waterfall.png",
@@ -419,7 +467,15 @@
     "file_path": "results/adaptation/reoptimization_summary.json",
     "directory": "results",
     "extension": ".json",
-    "size_bytes": 718,
+    "size_bytes": 702,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/drift/drift_detection_results.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 1177,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -427,7 +483,7 @@
     "file_path": "results/drift/drift_metrics.json",
     "directory": "results",
     "extension": ".json",
-    "size_bytes": 7333,
+    "size_bytes": 7044,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -459,7 +515,7 @@
     "file_path": "results/drift/feature_shift_report.json",
     "directory": "results",
     "extension": ".json",
-    "size_bytes": 66171,
+    "size_bytes": 66138,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -467,7 +523,7 @@
     "file_path": "results/drift/ood_results.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 2311,
+    "size_bytes": 2299,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -475,15 +531,23 @@
     "file_path": "results/drift/robustness_report.md",
     "directory": "results",
     "extension": ".md",
-    "size_bytes": 6540,
+    "size_bytes": 6523,
     "status": "IMPLEMENTED",
     "notes": "Documentation / summary report"
+  },
+  {
+    "file_path": "results/drift/threshold_provenance.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 2197,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
   },
   {
     "file_path": "results/drift/datasets/scenario_a_attendance_drift_10pct.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 29906,
+    "size_bytes": 29841,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -491,7 +555,7 @@
     "file_path": "results/drift/datasets/scenario_a_attendance_drift_15pct.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 30721,
+    "size_bytes": 30969,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -499,7 +563,7 @@
     "file_path": "results/drift/datasets/scenario_a_attendance_drift_20pct.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 31614,
+    "size_bytes": 31742,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -507,7 +571,7 @@
     "file_path": "results/drift/datasets/scenario_a_attendance_drift_5pct.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 30178,
+    "size_bytes": 30338,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -515,7 +579,7 @@
     "file_path": "results/drift/datasets/scenario_b_academic_drift_shift_0.5.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 26936,
+    "size_bytes": 27096,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -523,7 +587,7 @@
     "file_path": "results/drift/datasets/scenario_b_academic_drift_shift_1.0.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 28002,
+    "size_bytes": 27878,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -531,7 +595,7 @@
     "file_path": "results/drift/datasets/scenario_b_academic_drift_shift_1.5.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 28190,
+    "size_bytes": 28188,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -539,7 +603,7 @@
     "file_path": "results/drift/datasets/scenario_c_backlog_surge_plus_1.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 25630,
+    "size_bytes": 25578,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -547,7 +611,7 @@
     "file_path": "results/drift/datasets/scenario_c_backlog_surge_plus_2.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 25438,
+    "size_bytes": 25376,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -555,7 +619,7 @@
     "file_path": "results/drift/datasets/scenario_c_backlog_surge_plus_3.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 25427,
+    "size_bytes": 25368,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -563,7 +627,7 @@
     "file_path": "results/drift/datasets/scenario_d_cohort_shift.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 47808,
+    "size_bytes": 47646,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -571,7 +635,143 @@
     "file_path": "results/drift/datasets/scenario_e_compound_stress.csv",
     "directory": "results",
     "extension": ".csv",
-    "size_bytes": 34394,
+    "size_bytes": 34541,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/final/final_test_evaluation.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 845,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/full_audit/adaptation_audit.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 266,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/full_audit/artifact_consistency_audit.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 907,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/full_audit/calibration_audit.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 460,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/full_audit/competition_requirement_matrix.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 2887,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/full_audit/drift_detection_audit.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 1394,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/full_audit/drift_scenario_audit.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 2254,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/full_audit/end_to_end_execution_report.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 917,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/full_audit/explainability_audit.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 554,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/full_audit/full_phase1_4_audit.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 7114,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/full_audit/full_phase1_4_audit.md",
+    "directory": "results",
+    "extension": ".md",
+    "size_bytes": 7407,
+    "status": "IMPLEMENTED",
+    "notes": "Documentation / summary report"
+  },
+  {
+    "file_path": "results/full_audit/leakage_audit.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 4860,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/full_audit/phase1_4_execution.log",
+    "directory": "results",
+    "extension": ".log",
+    "size_bytes": 3256,
+    "status": "IMPLEMENTED",
+    "notes": "Core functional component"
+  },
+  {
+    "file_path": "results/full_audit/phase_status.csv",
+    "directory": "results",
+    "extension": ".csv",
+    "size_bytes": 1162,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/full_audit/repository_inventory.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 29395,
+    "status": "IMPLEMENTED",
+    "notes": "Structured artifact / benchmark data"
+  },
+  {
+    "file_path": "results/full_audit/repository_inventory.md",
+    "directory": "results",
+    "extension": ".md",
+    "size_bytes": 15142,
+    "status": "IMPLEMENTED",
+    "notes": "Documentation / summary report"
+  },
+  {
+    "file_path": "results/full_audit/reproducibility_audit.json",
+    "directory": "results",
+    "extension": ".json",
+    "size_bytes": 490,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -579,7 +779,7 @@
     "file_path": "results/nsga2/artifact_consistency_report.json",
     "directory": "results",
     "extension": ".json",
-    "size_bytes": 671,
+    "size_bytes": 674,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -683,7 +883,7 @@
     "file_path": "results/nsga2/phase2_independent_audit.json",
     "directory": "results",
     "extension": ".json",
-    "size_bytes": 15486,
+    "size_bytes": 15489,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -691,7 +891,7 @@
     "file_path": "results/nsga2/phase2_independent_audit.md",
     "directory": "results",
     "extension": ".md",
-    "size_bytes": 8125,
+    "size_bytes": 7292,
     "status": "IMPLEMENTED",
     "notes": "Documentation / summary report"
   },
@@ -763,7 +963,7 @@
     "file_path": "results/tests/test_report.json",
     "directory": "results",
     "extension": ".json",
-    "size_bytes": 9705,
+    "size_bytes": 9706,
     "status": "IMPLEMENTED",
     "notes": "Structured artifact / benchmark data"
   },
@@ -771,7 +971,7 @@
     "file_path": "results/tests/test_report.md",
     "directory": "results",
     "extension": ".md",
-    "size_bytes": 10348,
+    "size_bytes": 10349,
     "status": "IMPLEMENTED",
     "notes": "Documentation / summary report"
   },
@@ -781,7 +981,7 @@
     "extension": ".yaml",
     "size_bytes": 1452,
     "status": "IMPLEMENTED",
-    "notes": "Root CLI entry point / configuration"
+    "notes": "Root CLI entry point / pipeline orchestrator / configuration"
   },
   {
     "file_path": "train.py",
@@ -789,7 +989,7 @@
     "extension": ".py",
     "size_bytes": 11835,
     "status": "IMPLEMENTED",
-    "notes": "Root CLI entry point / configuration"
+    "notes": "Root CLI entry point / pipeline orchestrator / configuration"
   },
   {
     "file_path": "evaluate.py",
@@ -797,7 +997,7 @@
     "extension": ".py",
     "size_bytes": 6171,
     "status": "IMPLEMENTED",
-    "notes": "Root CLI entry point / configuration"
+    "notes": "Root CLI entry point / pipeline orchestrator / configuration"
   },
   {
     "file_path": "optimize_nsga2.py",
@@ -805,7 +1005,7 @@
     "extension": ".py",
     "size_bytes": 23516,
     "status": "IMPLEMENTED",
-    "notes": "Root CLI entry point / configuration"
+    "notes": "Root CLI entry point / pipeline orchestrator / configuration"
   },
   {
     "file_path": "test_phase1.py",
@@ -813,15 +1013,15 @@
     "extension": ".py",
     "size_bytes": 42868,
     "status": "IMPLEMENTED",
-    "notes": "Root CLI entry point / configuration"
+    "notes": "Root CLI entry point / pipeline orchestrator / configuration"
   },
   {
     "file_path": "requirements.txt",
     "directory": "root",
     "extension": ".txt",
-    "size_bytes": 73,
+    "size_bytes": 91,
     "status": "IMPLEMENTED",
-    "notes": "Root CLI entry point / configuration"
+    "notes": "Root CLI entry point / pipeline orchestrator / configuration"
   },
   {
     "file_path": "README.md",
@@ -829,14 +1029,14 @@
     "extension": ".md",
     "size_bytes": 2415,
     "status": "IMPLEMENTED",
-    "notes": "Root CLI entry point / configuration"
+    "notes": "Root CLI entry point / pipeline orchestrator / configuration"
   },
   {
     "file_path": "run_pipeline.py",
     "directory": "root",
     "extension": ".py",
-    "size_bytes": 0,
-    "status": "MISSING",
-    "notes": "Centralized end-to-end pipeline orchestrator script missing; individual CLI scripts used instead."
+    "size_bytes": 10825,
+    "status": "IMPLEMENTED",
+    "notes": "Root CLI entry point / pipeline orchestrator / configuration"
   }
 ]

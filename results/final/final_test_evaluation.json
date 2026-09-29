@@ -1,0 +1,29 @@
+{
+    "evaluation_title": "FINAL TEST \u2014 ONE-TIME EVALUATION",
+    "dataset": "data/processed/test.csv",
+    "sample_count": 200,
+    "student_count": 100,
+    "seed": 42,
+    "phase1_baseline_model": {
+        "model_path": "models/baseline_model.pt",
+        "parameters": 3585,
+        "mae": 0.8773,
+        "rmse": 1.0851,
+        "r2": -0.0765
+    },
+    "phase2_selected_model": {
+        "model_path": "models/nsga2/nsga2_selected_model.pt",
+        "architecture": "[32, 16] tanh",
+        "parameters": 1281,
+        "mae": 0.8359,
+        "rmse": 1.0692,
+        "r2": -0.0453,
+        "single_sample_latency_ms": 0.0746,
+        "batch_latency_ms": 0.0873
+    },
+    "delta_improvement": {
+        "mae_reduction": 0.0414,
+        "rmse_reduction": 0.0159,
+        "param_reduction_pct": 64.27
+    }
+}
