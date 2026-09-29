@@ -220,14 +220,20 @@ def run_final_test_evaluation(seed: int = 42):
     print("=" * 70)
 
 
+def run_phase_5(seed: int = 42):
+    """Execute Phase 5: Multi-seed robustness, drift severity, ablation, efficiency, and packaging."""
+    from src.phase5.runner import run_full_phase5
+    run_full_phase5()
+
+
 def main():
     parser = argparse.ArgumentParser(description="Unified ML Pipeline Orchestrator")
     parser.add_argument(
         "--phase",
         type=str,
         required=True,
-        choices=["1", "2", "3", "4", "all", "final-test"],
-        help="Pipeline phase to execute (1, 2, 3, 4, all, or final-test)"
+        choices=["1", "2", "3", "4", "5", "all", "final-test"],
+        help="Pipeline phase to execute (1, 2, 3, 4, 5, all, or final-test)"
     )
     parser.add_argument("--seed", type=int, default=42, help="Deterministic global seed (default: 42)")
     args = parser.parse_args()
@@ -243,13 +249,16 @@ def main():
         run_phase_3(seed=args.seed)
     elif args.phase == "4":
         run_phase_4(seed=args.seed)
+    elif args.phase == "5":
+        run_phase_5(seed=args.seed)
     elif args.phase == "all":
-        print("\nExecuting full automated progression: Phase 1 -> Phase 2 -> Phase 3 -> Phase 4")
+        print("\nExecuting full automated progression: Phase 1 -> Phase 2 -> Phase 3 -> Phase 4 -> Phase 5")
         run_phase_1(seed=args.seed)
         run_phase_2(seed=args.seed)
         run_phase_3(seed=args.seed)
         run_phase_4(seed=args.seed)
-        print("[PIPELINE COMPLETE] Phases 1-4 successfully executed and verified.")
+        run_phase_5(seed=args.seed)
+        print("[PIPELINE COMPLETE] Phases 1-5 successfully executed and verified.")
     elif args.phase == "final-test":
         run_final_test_evaluation(seed=args.seed)
         

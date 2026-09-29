@@ -1,0 +1,80 @@
+{
+  "project_title": "OptiForge: Adaptive Multi-Objective Student Performance Prediction Under Non-Stationary Distribution Drift",
+  "phase5_execution_timestamp": "2026-09-30 04:19:53",
+  "multi_seed_metrics": {
+    "seeds_evaluated": [
+      42,
+      123,
+      2024,
+      7,
+      99
+    ],
+    "mae_mean": 0.7602,
+    "mae_std": 0.0579,
+    "conformal_coverage_mean": 89.0,
+    "interval_width_mean": 3.2304
+  },
+  "efficiency_metrics": {
+    "batch_1_mean_latency_ms": 0.1595,
+    "batch_200_mean_latency_ms": 0.1916,
+    "batch_200_throughput": 1044056.6
+  },
+  "ablation_summary": [
+    {
+      "configuration": "A",
+      "description": "Frozen neural baseline",
+      "MAE": 1.7301,
+      "RMSE": 1.9378,
+      "R2": -2.2089,
+      "parameter_count": 3585,
+      "latency": 0.0851,
+      "bias": -1.2654,
+      "conformal_coverage": "N/A"
+    },
+    {
+      "configuration": "B",
+      "description": "NSGA-II optimized model",
+      "MAE": 0.7706,
+      "RMSE": 1.1078,
+      "R2": -0.0487,
+      "parameter_count": 1281,
+      "latency": 0.0612,
+      "bias": 0.2501,
+      "conformal_coverage": "N/A"
+    },
+    {
+      "configuration": "C",
+      "description": "NSGA-II + drift detection",
+      "MAE": 0.7706,
+      "RMSE": 1.1078,
+      "R2": -0.0487,
+      "parameter_count": 1281,
+      "latency": 0.0612,
+      "bias": 0.2501,
+      "conformal_coverage": "N/A"
+    },
+    {
+      "configuration": "D",
+      "description": "NSGA-II + drift detection + adaptive reoptimization",
+      "MAE": 0.8876,
+      "RMSE": 1.1376,
+      "R2": -0.1058,
+      "parameter_count": 3073,
+      "latency": 0.0445,
+      "bias": -0.2379,
+      "conformal_coverage": "N/A"
+    },
+    {
+      "configuration": "E",
+      "description": "Full system: NSGA-II + drift detection + adaptive reoptimization + calibration",
+      "MAE": 0.8375,
+      "RMSE": 1.0992,
+      "R2": -0.0324,
+      "parameter_count": 3073,
+      "latency": 0.0445,
+      "bias": -0.1433,
+      "conformal_coverage": "78.0%"
+    }
+  ],
+  "competition_readiness": "READY FOR FINAL COMPETITION"
+}

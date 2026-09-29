@@ -1,0 +1,15 @@
+dataset,metric,mean,std,min,max,ci_95_lower,ci_95_upper
+Multi-Seed (Recovery Cohort),MAE,0.7602,0.0579,0.6672,0.8238,0.6883,0.8321
+Multi-Seed (Recovery Cohort),RMSE,0.998,0.0796,0.8709,1.083,0.8992,1.0969
+Multi-Seed (Recovery Cohort),R2,-0.0403,0.0531,-0.0922,0.0274,-0.1062,0.0256
+Multi-Seed (Recovery Cohort),bias,-0.0835,0.2282,-0.2939,0.2653,-0.3668,0.1998
+Multi-Seed (Recovery Cohort),conformal coverage,89.0,4.5826,82.0,94.0,83.3109,94.6891
+Multi-Seed (Recovery Cohort),interval width,3.2304,0.3548,2.6983,3.6612,2.79,3.6708
+Multi-Seed (Recovery Cohort),latency,0.0807,0.0125,0.0642,0.0983,0.0653,0.0962
+Drift Scenarios (12 Regimes),MAE,1.2286,0.2512,0.8375,1.5252,1.069,1.3882
+Drift Scenarios (12 Regimes),RMSE,1.4754,0.2396,1.0992,1.7597,1.3232,1.6276
+Drift Scenarios (12 Regimes),R2,-0.905,0.585,-1.6459,-0.0324,-1.2767,-0.5334
+Drift Scenarios (12 Regimes),bias,-0.3177,0.1031,-0.4352,-0.1433,-0.3832,-0.2522
+Drift Scenarios (12 Regimes),conformal coverage,87.3333,8.866,74.0,96.0,81.7001,92.9666
+Drift Scenarios (12 Regimes),interval width,4.2923,1.3273,2.516,5.7655,3.449,5.1356
+CPU Batch Inference,latency,0.1789,0.0188,0.1595,0.2105,0.1639,0.194

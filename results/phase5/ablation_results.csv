@@ -1,0 +1,6 @@
+configuration,description,MAE,RMSE,R2,parameter_count,latency,bias,conformal_coverage
+A,Frozen neural baseline,1.7301,1.9378,-2.2089,3585,0.0851,-1.2654,N/A
+B,NSGA-II optimized model,0.7706,1.1078,-0.0487,1281,0.0612,0.2501,N/A
+C,NSGA-II + drift detection,0.7706,1.1078,-0.0487,1281,0.0612,0.2501,N/A
+D,NSGA-II + drift detection + adaptive reoptimization,0.8876,1.1376,-0.1058,3073,0.0445,-0.2379,N/A
+E,Full system: NSGA-II + drift detection + adaptive reoptimization + calibration,0.8375,1.0992,-0.0324,3073,0.0445,-0.1433,78.0%

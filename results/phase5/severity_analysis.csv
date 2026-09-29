@@ -1,0 +1,13 @@
+scenario,group,drift_score,drift_detected,action,baseline_MAE,adapted_MAE,baseline_RMSE,adapted_RMSE,baseline_R2,adapted_R2,mean_bias,conformal_coverage,interval_width
+scenario_a_attendance_drift_5pct,attendance drift,0.5143,True,TRIGGER_ADAPTATION,0.7913,1.4692,1.101,1.7013,-0.0359,-1.4733,-0.4196,96.0,5.7111
+scenario_a_attendance_drift_10pct,attendance drift,0.5429,True,TRIGGER_ADAPTATION,0.7953,1.353,1.1027,1.5828,-0.039,-1.1408,-0.3808,96.0,5.3372
+scenario_a_attendance_drift_15pct,attendance drift,0.5429,True,TRIGGER_ADAPTATION,0.8043,1.2389,1.1067,1.4692,-0.0466,-0.8446,-0.3436,91.0,4.2345
+scenario_a_attendance_drift_20pct,attendance drift,0.5429,True,TRIGGER_ADAPTATION,0.828,1.1408,1.1199,1.3773,-0.0717,-0.621,-0.3093,82.0,3.4007
+scenario_b_academic_drift_shift_0.5,academic drift,0.6,True,TRIGGER_ADAPTATION,0.7948,1.5252,1.1027,1.7597,-0.0391,-1.6459,-0.4352,96.0,5.7655
+scenario_b_academic_drift_shift_1.0,academic drift,0.6,True,TRIGGER_ADAPTATION,0.8019,1.4831,1.1072,1.7144,-0.0475,-1.5116,-0.4063,96.0,5.6842
+scenario_b_academic_drift_shift_1.5,academic drift,0.6,True,TRIGGER_ADAPTATION,0.8242,1.4365,1.1219,1.666,-0.0756,-1.3719,-0.3777,96.0,5.5789
+scenario_c_backlog_surge_plus_1,backlog surge,0.5429,True,TRIGGER_ADAPTATION,0.7723,1.1467,1.096,1.3871,-0.0265,-0.6441,-0.3021,80.0,3.5416
+scenario_c_backlog_surge_plus_2,backlog surge,0.5429,True,TRIGGER_ADAPTATION,0.7725,0.9102,1.0898,1.1814,-0.0148,-0.1926,-0.194,74.0,2.516
+scenario_c_backlog_surge_plus_3,backlog surge,0.5429,True,TRIGGER_ADAPTATION,0.7689,0.8526,1.0915,1.1261,-0.0181,-0.0837,-0.1464,76.0,2.6124
+scenario_d_cohort_shift,multivariate shift,0.7714,True,TRIGGER_ADAPTATION,0.8127,1.3492,1.1448,1.6401,-0.12,-1.2985,-0.354,87.0,4.5891
+scenario_e_compound_stress,compound stress,0.8857,True,TRIGGER_ADAPTATION,0.7706,0.8375,1.1078,1.0992,-0.0487,-0.0324,-0.1433,78.0,2.5364
